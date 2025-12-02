@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nextora – Futuristic City</title>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #031f25;
+    color: #d8f6ff;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Glow Pulse */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(95, 232, 255, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(95, 232, 255, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(95, 232, 255, 0.2); }
+}
+
+/* Neon Border Animation - single color cyan */
+@keyframes neonBorder {
+    0%, 50%, 100% { border-color: #0ff; box-shadow: 0 0 15px #0ff; }
+    25% { border-color: #0ff; box-shadow: 0 0 25px #0ff; }
+    75% { border-color: #0ff; box-shadow: 0 0 35px #0ff; }
+}
+
+/* Float */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* HEADER */
+header {
+    background: rgba(0, 35, 45, 0.65);
+    backdrop-filter: blur(12px);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 180, 220, 0.25);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 46px;
+    font-weight: 700;
+    color: #5fe7ff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #37d4f5;
+}
+
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #8ff3ff;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 10px #8ff3ff;
+}
+
+/* SECTIONS */
+section {
+    padding: 90px 60px;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #7bf3ff;
+    text-shadow: 0 0 20px rgba(95, 231, 255, 0.8);
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding-top: 140px;
+}
+
+.hero h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #88f3ff;
+    text-shadow: 0 0 25px rgba(136, 243, 255, 0.6);
+}
+
+.hero p {
+    margin: 20px auto;
+    max-width: 900px;
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.info-box {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 26px;
+    font-size: 22px;
+    border-left: 4px solid #65eaff;
+    background: rgba(0, 60, 70, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    animation: pulseGlow 3s infinite;
+}
+
+/* ==== COURSE BOXES ==== */
+.course-box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.course-box {
+    background: rgba(0, 60, 70, 0.45);
+    border: 2px solid #0ff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    transition: 0.4s ease;
+    animation: neonBorder 3s infinite;
+}
+
+.course-box:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 50px #0ff, 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+.course-box h3 {
+    color: #8af4ff;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.course-box p,
+.course-box ul {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.course-box ul {
+    margin-left: 18px;
+}
+
+/* TEAM CARDS */
+.team-card-container {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.team-card {
+    width: 280px;
+    background: rgba(0, 60, 70, 0.4);
+    padding: 28px;
+    border-radius: 15px;
+    border: 2px solid #0ff;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+    transition: 0.4s;
+    animation: neonBorder 3s infinite, float 3s ease-in-out infinite;
+}
+
+.team-card:hover {
+    transform: scale(1.08) translateY(-6px);
+    box-shadow: 0 0 55px #0ff, 0 0 35px rgba(0, 255, 255, 0.4);
+}
+
+.team-card h3 {
+    font-size: 24px;
+    color: #a3f6ff;
+    margin-bottom: 8px;
+}
+
+/* FOOTER */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 40, 50, 0.7);
+    border-top: 1px solid rgba(0, 180, 220, 0.3);
+}
+
+.footer p {
+    font-size: 15px;
+    color: #9be9ff;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Nextora</h1>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#swapna">Swapna</a>
+        <a href="#jena">Jena</a>
+        <a href="#nirjara">Nirjara</a>
+       
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="hero">
+    <h2>Futuristic City of Innovation</h2>
+    <p>
+        Nextora is a high-tech smart city built around sustainability, automation, and 
+        human-centric design. Its teal-blue skyline and AI-driven infrastructure reflect 
+        the next stage of urban evolution.
+    </p>
+
+    <div class="info-box"><i class="fas fa-book-open"></i> Design & Analysis of Algorithms – Course Overview</div>
+
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3><i class="fas fa-info-circle"></i> About the Course</h3>
+            <p>
+                This project is part of the Design and Analysis of Algorithms (DAA), 
+                Course Code 24ECSC205, taught by Prof. Prakash Hegade at 
+                KLE Technological University.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3><i class="fas fa-cogs"></i> What the Course Is About</h3>
+            <p>
+                The course focuses on designing efficient algorithms, analyzing time and
+                space complexity, and building optimal solutions for computational problems.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3><i class="fas fa-project-diagram"></i> Structures & Algorithms Studied</h3>
+            <ul>
+                <li>Greedy Techniques</li>
+                <li>Dynamic Programming</li>
+                <li>Divide & Conquer</li>
+                <li>Backtracking</li>
+                <li>AVL Trees, Heaps, Hashing</li>
+                <li>Segment & Fenwick Trees</li>
+                <li>Skip Lists, Priority Queues</li>
+                <li>Dijkstra, Bellman–Ford, Floyd–Warshall</li>
+                <li>Sorting & Searching Techniques</li>
+            </ul>
+        </div>
+
+        <div class="course-box">
+            <h3><i class="fas fa-lightbulb"></i> Real-World Applications</h3>
+            <ul>
+                <li>Navigation – Shortest path algorithms</li>
+                <li>Social Media – Ranking algorithms</li>
+                <li>Databases – Indexing & hashing</li>
+                <li>Networking – Routing optimization</li>
+                <li>Compilers – Graph-based optimizations</li>
+                <li>AI & Robotics – State-space search</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title"><i class="fas fa-users"></i> About</h2>
+    <h3>“Tech enthusiasts building smart solutions together”</h3>
+
+    <div class="team-card-container">
+        <div class="team-card">
+            <h3>Swapna C Neeralagi</h3>
+            <p><i class="fas fa-id-badge"></i> Roll no: 241</p>
+            <p><i class="fas fa-barcode"></i> USN: 01FE24BCS143</p>
+            <p><i class="fas fa-laptop-code"></i> Skills: C, C++, Data Structure and Algorithms</p> 
+        </div>
+
+        <div class="team-card">
+            <h3>Jena</h3>
+            <p><i class="fas fa-id-badge"></i> Roll no: 254</p>
+            <p><i class="fas fa-barcode"></i> USN: 01FE24BCS195</p>
+            <p><i class="fas fa-laptop-code"></i> Skills: C, C++, Data Structure and Algorithms</p> 
+        </div>
+
+        <div class="team-card">
+            <h3>Nirjara</h3>
+            <p><i class="fas fa-id-badge"></i> Roll no: 204</p>
+            <p><i class="fas fa-barcode"></i> USN: 01FE24BCS020</p>
+            <p><i class="fas fa-laptop-code"></i> Skills: C, C++, Data Structure and Algorithms</p> 
+        </div>
+    </div>
+</section>
+
+<!-- PROJECT -->
+<section id="project">
+    <h2 class="section-title"><i class="fas fa-city"></i> Project: Nextora</h2>
+    <p>
+        Nextora is a futuristic city designed for sustainability, innovation, and smart living. 
+        Its infrastructure is guided by advanced technology and urban planning.
+    </p>
+
+    <div class="course-box-container">
+        <div class="course-box">
+            <h3><i class="fas fa-map-marker-alt"></i> Site Analysis</h3>
+            <ul>
+                <li><strong>Location:</strong> Strategically situated to optimize transportation and connectivity.</li>
+                <li><strong>Topography:</strong> Flood control, soil stability, and urban expansion planning.</li>
+                <li><strong>Climate:</strong> Renewable energy with solar and wind integration.</li>
+                <li><strong>Green Spaces:</strong> Parks and eco-corridors for air quality and biodiversity.</li>
+                <li><strong>Infrastructure:</strong> Smart utilities for water, electricity, and waste management.</li>
+            </ul>
+        </div>
+
+        <div class="course-box">
+            <h3><i class="fas fa-project-diagram"></i> Urban Planning Infographics</h3>
+            <p>
+                Modern grids, mixed-use areas, and pedestrian-friendly streets. 
+                Smart transportation reduces congestion and carbon footprint.
+            </p>
+            <img src="images/nextora-map.png" alt="Nextora City Map" style="width:100%; border-radius:10px; margin-top:15px; box-shadow:0 0 20px rgba(0,255,255,0.3);">
+        </div>
+    </div>
+</section>
+
+<!-- SWAPNA PAGE -->
+<section id="swapna">
+    <h2 class="section-title">💼 Swapna</h2>
+    <h3>Identified Business Cases</h3>
+
+    <div class="course-box-container">
+        <div class="course-box"><span class="icon">⚡</span> Smart Energy Management</div>
+        <div class="course-box"><span class="icon">🚌</span> Autonomous Public Transport</div>
+        <div class="course-box"><span class="icon">🏗</span> Green Construction & Materials</div>
+        <div class="course-box"><span class="icon">♻</span> Waste-to-Energy Systems</div>
+        <div class="course-box"><span class="icon">🏥</span> Smart Healthcare Hubs</div>
+        <div class="course-box"><span class="icon">🌱</span> Urban Agriculture & Vertical Farms</div>
+        <div class="course-box"><span class="icon">🖥</span> Digital Governance & Citizen Services</div>
+        <div class="course-box"><span class="icon">🎭</span> Tourism & Cultural Tech Experiences</div>
+        <div class="course-box"><span class="icon">🔒</span> High-Tech Security & Surveillance</div>
+        <div class="course-box"><span class="icon">🛒</span> Next-Gen Retail & Logistics</div>
+    </div>
+</section>
+
+<section id="jena">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Jena</h2>
+    <p>Identified Business Cases</p>
+</section>
+
+<section id="nirjara">
+    <h2 class="section-title"><i class="fas fa-briefcase"></i> Nirjara</h2>
+    <p>Identified Business Cases</p>
+</section>
+
+
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>Nextora © 2025 — Futuristic City Project</p>
+</div>
+
+</body>
+</html>
