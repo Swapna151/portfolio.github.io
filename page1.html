@@ -1,0 +1,4047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nextora – Futuristic City</title>
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #031f25;
+    color: #d8f6ff;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Glow Pulse */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 10px rgba(95, 232, 255, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(95, 232, 255, 0.5); }
+    100% { box-shadow: 0 0 10px rgba(95, 232, 255, 0.2); }
+}
+
+/* Neon Border Animation - single color cyan */
+@keyframes neonBorder {
+    0%, 50%, 100% { border-color: #0ff; box-shadow: 0 0 15px #0ff; }
+    25% { border-color: #0ff; box-shadow: 0 0 25px #0ff; }
+    75% { border-color: #0ff; box-shadow: 0 0 35px #0ff; }
+}
+
+/* Float */
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+/* HEADER */
+header {
+    background: rgba(0, 35, 45, 0.65);
+    backdrop-filter: blur(12px);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 180, 220, 0.25);
+}
+
+header h1 {
+    text-align: center;
+    font-size: 46px;
+    font-weight: 700;
+    color: #5fe7ff;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #37d4f5;
+}
+
+nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 20px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #8ff3ff;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: white;
+    text-shadow: 0 0 10px #8ff3ff;
+}
+
+/* SECTIONS */
+section {
+    padding: 90px 60px;
+    min-height: 100vh;
+}
+
+.section-title {
+    font-size: 42px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #7bf3ff;
+    text-shadow: 0 0 20px rgba(95, 231, 255, 0.8);
+}
+
+/* HERO SECTION */
+.hero {
+    text-align: center;
+    padding-top: 140px;
+}
+
+.hero h2 {
+    font-size: 60px;
+    font-weight: 700;
+    color: #88f3ff;
+    text-shadow: 0 0 25px rgba(136, 243, 255, 0.6);
+}
+
+.hero p {
+    margin: 20px auto;
+    max-width: 900px;
+    font-size: 20px;
+    opacity: 0.9;
+}
+
+.info-box {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 26px;
+    font-size: 22px;
+    border-left: 4px solid #65eaff;
+    background: rgba(0, 60, 70, 0.4);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+    animation: pulseGlow 3s infinite;
+}
+
+/* ==== COURSE BOXES ==== */
+.course-box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.course-box {
+    background: rgba(0, 60, 70, 0.45);
+    border: 2px solid #0ff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    transition: 0.4s ease;
+    animation: neonBorder 3s infinite;
+}
+
+.course-box:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 50px #0ff, 0 0 40px rgba(0, 255, 255, 0.4);
+}
+
+.course-box h3 {
+    color: #8af4ff;
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+.course-box p,
+.course-box ul {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.course-box ul {
+    margin-left: 18px;
+}
+
+/* TEAM CARDS */
+.team-card-container {
+    display: flex;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.team-card {
+    width: 280px;
+    background: rgba(0, 60, 70, 0.4);
+    padding: 28px;
+    border-radius: 15px;
+    border: 2px solid #0ff;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.25);
+    transition: 0.4s;
+    animation: neonBorder 3s infinite, float 3s ease-in-out infinite;
+}
+
+.team-card:hover {
+    transform: scale(1.08) translateY(-6px);
+    box-shadow: 0 0 55px #0ff, 0 0 35px rgba(0, 255, 255, 0.4);
+}
+
+.team-card h3 {
+    font-size: 24px;
+    color: #a3f6ff;
+    margin-bottom: 8px;
+}
+
+/* FOOTER */
+.footer {
+    padding: 20px;
+    text-align: center;
+    background: rgba(0, 40, 50, 0.7);
+    border-top: 1px solid rgba(0, 180, 220, 0.3);
+}
+
+.footer p {
+    font-size: 15px;
+    color: #9be9ff;
+}
+
+/* Fade + Slide Up Animation */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to each box */
+.course-box {
+    animation: fadeSlideUp 0.8s ease-out forwards;
+    opacity: 0;  /* Needed so animation starts invisible */
+}
+
+/* Delay each box slightly for stagger effect */
+.course-box:nth-child(1) { animation-delay: 0.1s; }
+.course-box:nth-child(2) { animation-delay: 0.2s; }
+.course-box:nth-child(3) { animation-delay: 0.3s; }
+.course-box:nth-child(4) { animation-delay: 0.4s; }
+.course-box:nth-child(5) { animation-delay: 0.5s; }
+.course-box:nth-child(6) { animation-delay: 0.6s; }
+.course-box:nth-child(7) { animation-delay: 0.7s; }
+.course-box:nth-child(8) { animation-delay: 0.8s; }
+.course-box:nth-child(9) { animation-delay: 0.9s; }
+.course-box:nth-child(10) { animation-delay: 1.0s; }
+
+@keyframes slideLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.course-box {
+    animation: slideLeft 0.7s ease-out forwards;
+    opacity: 0;
+}
+
+.course-box:nth-child(n) {
+    animation-delay: calc(0.1s * var(--i));
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #050b1a;
+  color: white;
+}
+
+#techCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -999;
+  pointer-events: none;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <canvas id="techCanvas"></canvas>
+
+    <h1>Nextora</h1>
+    <nav>
+        <a href="#swapna">Swapna</a>
+    </nav>
+</header>
+
+
+    <style>
+        body {
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 320px;
+            background-color: #1e3d59;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        th {
+            background-color: #16324f;
+            padding: 10px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        td {
+            padding: 8px 10px;
+            background-color: #f2f2f2;
+            color: #000;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #d9e6f2;
+        }
+
+        caption {
+            caption-side: top;
+            padding: 10px;
+            font-weight: bold;
+            background-color: #16324f;
+        }
+    </style>
+</head>
+    
+
+
+
+
+<section id="swapna">
+    <h2 class="section-title">💼 Swapna</h2>
+    <h3>Identified Business Cases</h3>
+ 
+    
+
+
+<a href="index.html" class="home-btn">Home</a>
+
+
+    <div class="course-box-container">
+        <!-- Main clickable box -->
+        <div class="course-box" onclick="openSubpage('smart-energy')">
+    ⚡ Smart Energy Management
+</div>
+
+        <div class="course-box" onclick="openSubpage('autonomous-transport')">
+    <span class="icon">🚌</span> Autonomous Public Transport
+</div>
+
+
+
+        <div class="course-box" onclick="openSubpage('urban-farming')">
+    🌱 Urban Agriculture & Vertical Farms
+</div>
+
+        <div class="course-box" onclick="openSubpage('digital-governance')">
+    🏛 Digital Governance & Citizen Services
+</div>
+
+       <div class="course-box" onclick="openSubpage('tourism-tech')">
+    🎭 Tourism & Cultural Tech Experiences
+</div>
+
+       <div class="course-box" onclick="openSubpage('nextgen-retail')">
+    🛒 Next-Gen Retail & Logistics
+</div>
+
+    </div>
+
+    <br>
+    <img src="images/city.jpeg" class="centered-photo" alt="Photo">
+
+
+
+    <title>Futuristic Smart City Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+:root{
+  --primary:#00f7ff;
+  --secondary:#00c3ff;
+  --bg:#020b14;
+  --card:#031f2e;
+  --text:#e8f9ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Segoe UI',sans-serif;
+  background:radial-gradient(circle at top,#031a2a,#020b14 75%);
+  color:var(--text);
+}
+/* HEADER */
+header{text-align:center;padding:32px 20px;}
+header h1{color:var(--primary);margin-bottom:6px;}
+header p{opacity:.85;font-size:15px;}
+/* GRID */
+.dashboard{
+  padding:30px 5vw 50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:28px;
+}
+/* CARD */
+.card{
+  background:linear-gradient(180deg,#04283a,#031b27);
+  border:1.4px solid rgba(0,247,255,.35);
+  border-radius:18px;
+  padding:22px;
+  position:relative;
+  box-shadow:0 0 28px rgba(0,247,255,.15);
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 40px rgba(0,247,255,.4);
+}
+/* TITLE */
+.card h3{
+  margin:0 0 14px;
+  color:#7df9ff;
+  font-weight:500;
+}
+/* MAIN BARS */
+.bar{
+  margin:14px 0;
+}
+.bar label{
+  font-size:14px;
+  display:block;
+  margin-bottom:6px;
+}
+.bar-bg{
+  background:#011a24;
+  border-radius:10px;
+  overflow:hidden;
+  height:16px;
+}
+.bar-fill{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  animation:grow 1.4s ease forwards;
+}
+@keyframes grow{
+  to{width:var(--value);}
+}
+/* MINI BAR GRAPH */
+.mini-bars{
+  display:flex;
+  gap:8px;
+  align-items:flex-end;
+  height:36px;
+  margin-top:16px;
+}
+.mini-bars span{
+  display:block;
+  width:9px;
+  background:linear-gradient(180deg,#00f7ff,#007c99);
+  border-radius:5px;
+  height:0;
+  animation:growMini 1.2s ease forwards;
+}
+@keyframes growMini{
+  to{height:var(--h);}
+}
+/* PULSAR */
+.pulsar{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#00f7ff;
+  position:absolute;
+  bottom:18px;
+  left:18px;
+  box-shadow:0 0 10px rgba(0,247,255,.9);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,247,255,.9);}
+  70%{box-shadow:0 0 0 18px rgba(0,247,255,0);}
+  100%{box-shadow:0 0 0 0 rgba(0,247,255,0);}
+}
+/* PIE CHART CONTAINER */
+.chart-container{
+  width:100%;
+  max-width:250px;
+  margin:12px auto;
+}
+footer{text-align:center;padding:25px;font-size:14px;opacity:.85;}
+</style>
+
+<header>
+<h1>🌐 Futuristic Smart City Dashboard</h1>
+<p>Dynamic Algorithm-Driven Portfolio | SDG-Aligned | Animated Visuals</p>
+</header>
+
+<div class="dashboard">
+
+<!-- Smart Energy Management -->
+<div class="card">
+<h3>🔋 Smart Energy Management</h3>
+<div class="bar"><label>Energy Efficiency — 65%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:65%"></div></div></div>
+<div class="bar"><label>Emission Reduction — 45%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:45%"></div></div></div>
+<div class="mini-bars"><span style="--h:45%"></span><span style="--h:75%"></span><span style="--h:60%"></span></div>
+<div class="chart-container">
+<canvas id="energyPie"></canvas>
+</div>
+<div class="pulsar"></div>
+</div>
+
+<!-- Autonomous Public Transport -->
+<div class="card">
+<h3>🚍 Autonomous Public Transport</h3>
+<div class="bar"><label>Route Optimization — 55%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:55%"></div></div></div>
+<div class="bar"><label>Time Savings — 40%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:40%"></div></div></div>
+<div class="mini-bars"><span style="--h:50%"></span><span style="--h:65%"></span><span style="--h:80%"></span></div>
+<div class="chart-container">
+<canvas id="transportPie"></canvas>
+</div>
+<div class="pulsar"></div>
+</div>
+
+<!-- Urban Agriculture -->
+<div class="card">
+<h3>🌱 Urban Agriculture & Vertical Farms</h3>
+<div class="bar"><label>Water Saving — 60%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:60%"></div></div></div>
+<div class="bar"><label>Food Output — 50%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:50%"></div></div></div>
+<div class="mini-bars"><span style="--h:40%"></span><span style="--h:70%"></span><span style="--h:65%"></span></div>
+<div class="chart-container">
+<canvas id="agriculturePie"></canvas>
+</div>
+<div class="pulsar"></div>
+</div>
+
+<!-- Digital Governance -->
+<div class="card">
+<h3>🏛 Digital Governance & Citizen Services</h3>
+<div class="bar"><label>Service Speed — 50%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:50%"></div></div></div>
+<div class="bar"><label>Transparency — 85%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:85%"></div></div></div>
+<div class="mini-bars"><span style="--h:55%"></span><span style="--h:65%"></span><span style="--h:75%"></span></div>
+<div class="chart-container">
+<canvas id="governancePie"></canvas>
+</div>
+<div class="pulsar"></div>
+</div>
+
+<!-- Tourism & Culture -->
+<div class="card">
+<h3>🏛 Tourism & Cultural Tech</h3>
+<div class="bar"><label>Visitor Engagement — 48%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:48%"></div></div></div>
+<div class="bar"><label>Cultural Reach — 55%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:55%"></div></div></div>
+<div class="mini-bars"><span style="--h:40%"></span><span style="--h:50%"></span><span style="--h:65%"></span></div>
+<div class="chart-container">
+<canvas id="tourismPie"></canvas>
+</div>
+<div class="pulsar"></div>
+</div>
+
+<!-- Retail & Logistics -->
+<div class="card">
+<h3>🛒 Next-Gen Retail & Logistics</h3>
+<div class="bar"><label>Delivery Speed — 42%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:42%"></div></div></div>
+<div class="bar"><label>Supply Efficiency — 60%</label>
+<div class="bar-bg"><div class="bar-fill" style="--value:60%"></div></div></div>
+<div class="mini-bars"><span style="--h:45%"></span><span style="--h:55%"></span><span style="--h:70%"></span></div>
+<div class="chart-container">
+<canvas id="retailPie"></canvas>
+</div>
+<div class="pulsar"></div>
+</div>
+
+</div>
+
+<footer>All six smart-city business cases visualized with dynamic bars & pie charts.</footer>
+
+<script>
+// Pie chart data
+const createPie = (id,data,colors) => {
+  new Chart(document.getElementById(id), {
+    type:'doughnut',
+    data:{labels:Object.keys(data),datasets:[{data:Object.values(data),backgroundColor:colors}]},
+    options:{plugins:{legend:{position:'bottom',labels:{color:'#e8f9ff'}}},cutout:'65%'}
+  });
+};
+
+// Initialize all pie charts
+createPie('energyPie',{Efficiency:65,Emission:45,Storage:20},['#00f7ff','#00c3ff','#007c99']);
+createPie('transportPie',{Optimization:55,Time:40,Cost:25},['#00f7ff','#00c3ff','#007c99']);
+createPie('agriculturePie',{Water:60,Food:50,Sustainability:30},['#00f7ff','#00c3ff','#007c99']);
+createPie('governancePie',{Speed:50,Transparency:85,Trust:40},['#00f7ff','#00c3ff','#007c99']);
+createPie('tourismPie',{Engagement:48,Cultural:55,Experience:30},['#00f7ff','#00c3ff','#007c99']);
+createPie('retailPie',{Delivery:42,Efficiency:60,Cost:30},['#00f7ff','#00c3ff','#007c99']);
+</script>
+</section>
+
+<section id="smart-energy" class="subpage" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+
+    <h2 class="section-title">⚡ Smart Energy Management</h2>
+
+    <!-- Overview -->
+    <div class="course-box">
+        <h3>Business Case Overview</h3>
+        <p>
+            This business case focuses on optimizing citywide energy consumption through smart grids,
+            local renewable production, AI-powered load balancing, and real-time demand monitoring.
+        </p>
+        <br>
+        <p>
+            Smart Energy Management directly supports **SDG 7** by providing reliable, clean, and affordable energy through smart
+             grids and renewable integration. It also advances **SDG 11, 12, and 13** by enabling efficient urban energy use,
+              responsible consumption, and reducing carbon emissions.
+
+        </p>
+    </div>
+
+    <h3 style="margin-top:30px;">Steps to Follow to Implement the Business Case</h3>
+
+    <!-- Steps -->
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3>Step 1: Understanding City Energy Demand</h3>
+            <p>
+                Analyze zone-wise consumption patterns, identify peak load periods, and map
+                high-pressure areas for informed planning and resource allocation.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 2: Local Renewable Energy Generation</h3>
+            <p>
+                Deploy rooftop solar panels, small wind units, and community renewable systems
+                to generate cleaner energy locally and reduce dependency on main grids.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 3: Citywide Battery Storage Systems</h3>
+            <p>
+                Install large-scale storage units to capture excess energy produced during the day
+                and release it during peak-demand hours or grid instability.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 4: District-Level Microgrids</h3>
+            <p>
+                Build independent microgrids for key districts to improve resilience,
+                minimize outages, and reduce transmission losses.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 5: Smart Monitoring & Smart Meters</h3>
+            <p>
+                Track real-time usage, detect faults early, prevent overloads, and enable
+                user-level consumption optimization.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 6: AI-Based Load Balancing</h3>
+            <p>
+                Use AI models to forecast demand, automatically regulate supply,
+                and stabilize the grid across all city zones.
+            </p>
+        </div>
+   
+    </div>
+    <p>      -----     </p>
+
+  <h2 class="algo-heading"> Algorithms </h2>
+
+ <img src="images/myphoto.jpg" class="centered-photo" alt="Photo">
+
+ <style>
+body{
+    background:#031f25;
+    color:#d8f6ff;
+    font-family:Poppins, sans-serif;
+    padding:40px;
+}
+h1{
+    text-align:center;
+    color:#7bf3ff;
+    margin-bottom:40px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+.box{
+    background:rgba(0,60,70,0.45);
+    border:2px solid #0ff;
+    border-radius:14px;
+    padding:22px;
+}
+.box h3{ color:#8af4ff; }
+.box p{ font-size:15px; margin:12px 0; }
+.box button{
+    background:#0ff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+.box button:hover{ background:#7ff; }
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+    z-index: 9999;
+}
+.modal-content{
+    background:#022c36;
+    margin:50px auto;
+    padding:25px;
+    width:90%;
+    max-width:900px;
+    border-radius:15px;
+    border:2px solid #0ff;
+}
+.close{
+    float:right;
+    font-size:26px;
+    cursor:pointer;
+    color:#0ff;
+}
+pre{
+    background:#011a21;
+    padding:15px;
+    border-radius:10px;
+    overflow-x:auto;
+    color:#aef6ff;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>🔋 Smart Energy Management – Algorithms</h1>
+
+<div class="grid">
+
+<div class="box">
+<h3>Segment Tree</h3>
+<p><b>Why:</b> Fast range queries + frequent updates from smart meters.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openCode(segmentTreeCode)">View Code</button>
+</div>
+
+<div class="box">
+<h3>Max Heap</h3>
+<p><b>Why:</b> Always selects the best renewable source instantly.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openCode(maxHeapCode)">View Code</button>
+</div>
+
+<div class="box">
+<h3>AVL Tree</h3>
+<p><b>Why:</b> Keeps batteries sorted by State of Charge.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openCode(avlTreeCode)">View Code</button>
+</div>
+
+<div class="box">
+<h3>Dijkstra Algorithm</h3>
+<p><b>Why:</b> Minimum loss power routing between districts.</p>
+<br> 
+<p> Time Complexity O((V+E)log V)</p>
+<button onclick="openCode(dijkstraCode)">View Code</button>
+</div>
+
+<div class="box">
+<h3>Fenwick Tree</h3>
+<p><b>Why:</b> Lightweight real-time smart meter aggregation.</p>
+<br> 
+<p> Time Complexity O(n)</p>
+<button onclick="openCode(fenwickCode)">View Code</button>
+</div>
+
+<div class="box">
+<h3>Priority Queue</h3>
+<p><b>Why:</b> Load balancing by highest priority demand.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openCode(priorityQueueCode)">View Code</button>
+</div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">×</span>
+<pre id="codeArea"></pre>
+</div>
+</div>
+
+<script>
+// ================= SEGMENT TREE =================
+const segmentTreeCode = `
+#include <bits/stdc++.h>
+using namespace std;
+
+int tree[4*100], arr[100];
+
+void buildSegmentTree(int node,int start,int end){
+    if(start==end){
+        tree[node]=arr[start];
+        return;
+    }
+    int mid=(start+end)/2;
+    buildSegmentTree(2*node,start,mid);
+    buildSegmentTree(2*node+1,mid+1,end);
+    tree[node]=tree[2*node]+tree[2*node+1];
+}
+
+int segmentTreeQuery(int node,int start,int end,int l,int r){
+    if(r<start || end<l) return 0;
+    if(l<=start && end<=r) return tree[node];
+    int mid=(start+end)/2;
+    return segmentTreeQuery(2*node,start,mid,l,r)
+         + segmentTreeQuery(2*node+1,mid+1,end,l,r);
+}
+`;
+
+// ================= MAX HEAP =================
+const maxHeapCode = `
+#include <bits/stdc++.h>
+using namespace std;
+
+void maxHeapSelection(){
+    priority_queue<pair<int,string>> heap;
+    heap.push({95,"Solar Plant"});
+    heap.push({80,"Wind Farm"});
+    heap.push({60,"Thermal Station"});
+
+    auto best = heap.top();
+    cout<<"Selected Source: "<<best.second;
+}
+`;
+
+// ================= AVL TREE =================
+const avlTreeCode = `
+struct Node{
+    int soc,height;
+    Node *left,*right;
+};
+
+int height(Node* n){ return n?n->height:0; }
+
+Node* rotateRight(Node* y){
+    Node* x=y->left;
+    y->left=x->right;
+    x->right=y;
+    return x;
+}
+
+Node* insertAVL(Node* root,int soc){
+    if(!root) return new Node{soc,1,nullptr,nullptr};
+    if(soc<root->soc) root->left=insertAVL(root->left,soc);
+    else root->right=insertAVL(root->right,soc);
+    return root;
+}
+`;
+
+// ================= DIJKSTRA =================
+const dijkstraCode = `
+#include <bits/stdc++.h>
+using namespace std;
+
+void Dijkstra(int src, vector<vector<pair<int,int>>> &graph){
+    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>> pq;
+    vector<int> dist(graph.size(),INT_MAX);
+
+    pq.push({0,src});
+    dist[src]=0;
+
+    while(!pq.empty()){
+        auto [d,u]=pq.top(); pq.pop();
+        for(auto [v,w]:graph[u]){
+            if(dist[v]>d+w){
+                dist[v]=d+w;
+                pq.push({dist[v],v});
+            }
+        }
+    }
+}
+`;
+
+// ================= FENWICK TREE =================
+const fenwickCode = `
+int BIT[100], n=100;
+
+void FenwickUpdate(int i,int val){
+    while(i<=n){
+        BIT[i]+=val;
+        i+=i&(-i);
+    }
+}
+
+int FenwickQuery(int i){
+    int sum=0;
+    while(i>0){
+        sum+=BIT[i];
+        i-=i&(-i);
+    }
+    return sum;
+}
+`;
+
+// ================= PRIORITY QUEUE =================
+const priorityQueueCode = `
+#include <queue>
+using namespace std;
+
+void LoadBalancing(){
+    priority_queue<pair<int,string>> pq;
+    pq.push({90,"Hospital"});
+    pq.push({70,"Residential"});
+    pq.push({50,"Commercial"});
+
+    auto next = pq.top();
+}
+`;
+
+function openCode(code){
+    document.getElementById("codeArea").textContent=code;
+    document.getElementById("modal").style.display="block";
+}
+function closeModal(){
+    document.getElementById("modal").style.display="none";
+
+    
+}
+
+
+</script>
+
+
+
+
+</body>
+<h2>Smart Energy Data</h2>
+
+<button onclick="openDataset()">View Raw JSON</button>
+
+<ul id="list"></ul>
+
+<!-- RAW JSON VIEW -->
+<div id="datasetView" style="display:none;">
+    <button onclick="closeDataset()">⬅ Back</button>
+    <pre id="datasetArea" style="border:1px solid #ccc; padding:10px;"></pre>
+</div>
+
+<script>
+// ================= YOUR JSON DATA =================
+const smartEnergyData = {
+  "battery_system": {
+    "total_capacity_kWh": 500,
+    "min_safe_percent": 20,
+    "max_safe_percent": 95
+  },
+  "smart_energy_data": [
+    {
+      "hour": 6,
+      "time": "06:00",
+      "area": "Residential",
+      "priority": 2,
+      "energy_demand_kWh": 420,
+      "solar_generation_kWh": 60,
+      "wind_generation_kWh": 40,
+      "grid_supply_kWh": 320,
+      "battery_storage_percent": 55,
+      "battery_energy_kWh": 275,
+      "power_loss_percent": 4.2,
+      "effective_supply_kWh": 402.36
+    },
+    {
+      "hour": 8,
+      "time": "08:00",
+      "area": "Residential",
+      "priority": 2,
+      "energy_demand_kWh": 680,
+      "solar_generation_kWh": 150,
+      "wind_generation_kWh": 60,
+      "grid_supply_kWh": 470,
+      "battery_storage_percent": 48,
+      "battery_energy_kWh": 240,
+      "power_loss_percent": 4.8,
+      "effective_supply_kWh": 647.36
+    },
+    {
+      "hour": 10,
+      "time": "10:00",
+      "area": "Commercial",
+      "priority": 1,
+      "energy_demand_kWh": 750,
+      "solar_generation_kWh": 320,
+      "wind_generation_kWh": 90,
+      "grid_supply_kWh": 340,
+      "battery_storage_percent": 62,
+      "battery_energy_kWh": 310,
+      "power_loss_percent": 3.9,
+      "effective_supply_kWh": 720.75
+    },
+    {
+      "hour": 12,
+      "time": "12:00",
+      "area": "Industrial",
+      "priority": 0,
+      "critical_load": true,
+      "energy_demand_kWh": 920,
+      "solar_generation_kWh": 410,
+      "wind_generation_kWh": 120,
+      "grid_supply_kWh": 390,
+      "battery_storage_percent": 70,
+      "battery_energy_kWh": 350,
+      "power_loss_percent": 3.5,
+      "effective_supply_kWh": 887.8
+    },
+    {
+      "hour": 17,
+      "time": "17:00",
+      "area": "Residential",
+      "priority": 2,
+      "energy_demand_kWh": 1020,
+      "solar_generation_kWh": 220,
+      "wind_generation_kWh": 80,
+      "grid_supply_kWh": 720,
+      "battery_storage_percent": 54,
+      "battery_energy_kWh": 270,
+      "power_loss_percent": 5.1,
+      "effective_supply_kWh": 968.98
+    },
+    {
+      "hour": 19,
+      "time": "19:00",
+      "area": "Residential",
+      "priority": 2,
+      "energy_demand_kWh": 1150,
+      "solar_generation_kWh": 90,
+      "wind_generation_kWh": 50,
+      "grid_supply_kWh": 1010,
+      "battery_storage_percent": 45,
+      "battery_energy_kWh": 225,
+      "power_loss_percent": 5.8,
+      "effective_supply_kWh": 1083.3
+    }
+  ]
+};
+
+// ================= LIST VIEW =================
+const ul = document.getElementById("list");
+
+smartEnergyData.smart_energy_data.forEach(item => {
+  const li = document.createElement("li");
+  li.textContent =
+    `Time: ${item.time} | Area: ${item.area} | Demand: ${item.energy_demand_kWh} kWh | Effective Supply: ${item.effective_supply_kWh} kWh`;
+  ul.appendChild(li);
+});
+
+// ================= BUTTON LOGIC =================
+function openDataset() {
+  document.getElementById("datasetView").style.display = "block";
+  document.getElementById("list").style.display = "none";
+
+  document.getElementById("datasetArea").textContent =
+    JSON.stringify(smartEnergyData, null, 2);
+}
+
+function closeDataset() {
+  document.getElementById("datasetView").style.display = "none";
+  document.getElementById("list").style.display = "block";
+}
+</script>
+<br>
+<style>
+    #jsonBox {
+      display: none;
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background: #0b1220;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    #jsonContent {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 15px;
+      border-radius: 8px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #25d6ed;
+      color: white;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #1db3d8;
+    }
+
+    .back-btn {
+      background: #111;
+      margin-bottom: 10px;
+    }
+  </style>
+
+
+</section>
+
+<!-- CODE MODAL -->
+<div id="codeModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeCode()">×</span>
+        <pre id="codeBox"></pre>
+    </div>
+</div>
+
+<script>
+const sampleCode = `
+#include <stdio.h>
+int main() {
+    printf("Segment Tree Example");
+    return 0;
+}
+`;
+
+function openCode(code) {
+    const modal = document.getElementById("codeModal");
+    const box = document.getElementById("codeBox");
+
+    if (!modal || !box) {
+        alert("Modal elements missing");
+        return;
+    }
+
+    box.textContent = code;
+    modal.style.display = "block";
+}
+
+function closeCode() {
+    document.getElementById("codeModal").style.display = "none";
+}
+</script>
+
+
+<style>
+    .algo-heading {
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 25px; /* space between heading & image */
+    color: #7bf3ff;
+    text-shadow: 0 0 20px rgba(95, 231, 255, 0.8);
+
+    
+.centered-photo {
+    display: block;
+    margin: 0 auto;             /* centers the image horizontally */
+    width: 50%;                 /* adjust size */
+    border: 5px solid #7bf3ff;  /* same color border */
+    border-radius: 12px;        /* optional */
+}
+
+}
+
+</style>
+
+<!-- AUTONOMOUS TRANSPORT SUBPAGE -->
+<section id="autonomous-transport" class="subpage" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+
+    <h2 class="section-title">🚌 Autonomous Public Transport</h2>
+
+    <div class="course-box">
+        <h3>Business Case Overview</h3>
+        <p>
+            Autonomous transport reduces traffic, removes human error, cuts pollution, 
+            and creates a smart mobility system that works 24/7 with precision.
+        </p>
+        <br>
+        <pr>
+           SDG :  Autonomous  public  transport  supports SDG 11  (Sustainable Cities)  by  reducing  congestion  and  improving  safe, 
+            accessible mobility. </pr>
+        <p>It  contributes  to  SDG 13 (Climate Action) through  optimized  electric  transport  that  lowers
+              emissions.</p>
+              <p> SDG  9  (Innovation & Infrastructure)  by  enabling  smart,  resilient  transport  systems.
+        </pr>
+    </div>
+
+    <h3 style="margin-top:30px;">Steps to Follow to Implement the Business Case</h3>
+
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3>Step 1: Map Mobility Patterns</h3>
+            <p>Study city travel patterns to design the correct shuttle routes.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 2: Build Smart Lanes</h3>
+            <p>Create dedicated AI-guided lanes to ensure safety and accuracy.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 3: Deploy Autonomous Shuttles</h3>
+            <p>Introduce electric self-driving shuttles equipped with LiDAR and sensors.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 4: AI Traffic Integration</h3>
+            <p>Coordinate shuttle movement using real-time AI traffic adjustments.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 5: Smart Bus Stops</h3>
+            <p>Install bus stops with live arrival updates and digital signages.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 6: Safety & Redundancy</h3>
+            <p>Add emergency overrides, 360° monitoring, and backup navigation systems.</p>
+        </div>
+
+    </div>
+
+    <style>
+body{
+    background:#031f25;
+    color:#d8f6ff;
+    font-family:Poppins, sans-serif;
+    padding:40px;
+}
+h1{
+    text-align:center;
+    color:#7bf3ff;
+    margin-bottom:40px;
+}
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+.box{
+    background:rgba(0,60,70,0.45);
+    border:2px solid #0ff;
+    border-radius:14px;
+    padding:22px;
+}
+.box h3{ color:#8af4ff; }
+.box p{ font-size:15px; margin:12px 0; }
+.box button{
+    background:#0ff;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+}
+.box button:hover{ background:#7ff; }
+
+/* MODAL */
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
+}
+.modal-content{
+    background:#022c36;
+    margin:50px auto;
+    padding:25px;
+    width:90%;
+    max-width:900px;
+    border-radius:15px;
+    border:2px solid #0ff;
+}
+.close{
+    float:right;
+    font-size:26px;
+    cursor:pointer;
+    color:#0ff;
+}
+pre{
+    background:#011a21;
+    padding:15px;
+    border-radius:10px;
+    overflow-x:auto;
+    color:#aef6ff;
+    font-size:14px;
+}
+</style>
+</head>
+
+<script>
+function openModal(id){
+    document.getElementById(id).style.display="block";
+}
+function closeModal(id){
+    document.getElementById(id).style.display="none";
+}
+</script>
+</head>
+
+<body>
+
+    <br>
+     <img src="images/p3.jpeg" class="centered-photo" alt="Photo">
+     <br>
+
+<h1>Autonomous Public Transport —  Algorithms</h1>
+
+<div class="grid">
+
+<!-- STEP 1 -->
+<div class="box">
+<h3>Step 1: Map Mobility Patterns</h3>
+<p><b>Algorithm:</b> BFS / DFS</p>
+<p>
+Graph traversal is used to analyze connectivity between locations.
+Frequently connected areas reveal mobility patterns without using ML.
+</p>
+<br> 
+<p> Time Complexity O(V+E)</p>
+<button onclick="openModal('m1')">View Code</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="box">
+<h3>Step 2: Build Smart Lanes</h3>
+<p><b>Algorithm:</b> Dijkstra’s Algorithm</p>
+<p>
+Finds shortest paths between hubs using real road distances.
+Guarantees optimal lane planning with non-negative weights.
+</p>
+<br> 
+<p> Time Complexity O(V+E)</p>
+<button onclick="openModal('m2')">View Code</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="box">
+<h3>Step 3: Deploy Autonomous Shuttles</h3>
+<p><b>Algorithm:</b> AVL Tree</p>
+<p>
+Maintains shuttle data in sorted order with guaranteed
+O(log n) insertion, deletion, and search.
+</p>
+<br> 
+<p> Time Complexity O((V+E)log V)</p>
+<button onclick="openModal('m3')">View Code</button>
+</div>
+
+<!-- STEP 4 -->
+<div class="box">
+<h3>Step 4: AI Traffic Integration</h3>
+<p><b>Algorithm:</b> Priority Queue (Max Heap)</p>
+<p>
+Ensures high-priority traffic events like accidents
+are handled before low-priority events.
+</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('m4')">View Code</button>
+</div>
+
+<!-- STEP 5 -->
+<div class="box">
+<h3>Step 5: Smart Bus Stops</h3>
+<p><b>Algorithm:</b> Segment Tree</p>
+<p>
+Efficiently processes range-based queries for arrival times,
+occupancy, and delays across multiple stops.
+</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('m5')">View Code</button>
+</div>
+
+<!-- STEP 6 -->
+<div class="box">
+<h3>Step 6: Safety & Redundancy</h3>
+<p><b>Algorithm:</b> Union–Find</p>
+<p>
+Detects network disconnections instantly and triggers
+fallback mechanisms when isolation occurs.
+</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('m6')">View Code</button>
+</div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="m1" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m1')">&times;</span>
+<pre>
+#include < iostream>
+using namespace std;
+
+int v = 5;
+int m[10][10] = {{0,1,1,0,0}, {1,0,0,1,1},
+        {1,0,0,0,1}, {0,1,0,0,0}, {0,1,1,0,0}};
+int visited[10];
+
+void dfs(int m[10][10], int v, int source) {
+    visited[source] = 1;
+    for (int i = 0; i < v; i++) {
+        if (m[source][i] == 1 && visited[i] == 0) {
+            cout << i << "\t";
+            dfs(m, v, i);
+        }
+    }
+}
+
+int main() {
+    int source;
+    for (int i = 0; i < v; i++)
+        visited[i] = 0;
+
+    cout << "Enter the source vertex: ";
+    cin >> source;
+
+    cout << "The DFS Traversal is... \n";
+    cout << source << "\t";
+    dfs(m, v, source);
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="m2" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m2')">&times;</span>
+<pre>
+#include < iostream >
+using namespace std;
+
+#define MAXN 100
+#define INF 999
+
+int main() {
+    int n;
+    cout << "Enter the number of Vertices\n";
+    cin >> n;
+
+    int cost[MAXN][MAXN];
+
+    cout << "Enter the cost matrix: (Enter 999 for Infinity)\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> cost[i][j];
+        }
+    }
+
+    int source;
+    cout << "Enter the source\n";
+    cin >> source;
+
+    int dist[MAXN], path[MAXN], visited[MAXN];
+
+
+    for (int i = 0; i < n; i++) {
+        dist[i] = cost[source][i];
+        path[i] = source;
+        visited[i] = 0;
+    }
+    visited[source] = 1;
+
+
+    for (int iter = 0; iter < n - 1; iter++) {
+        int u = -1;
+        int min = INF + 1;
+
+
+        for (int i = 0; i < n; i++) {
+            if (!visited[i] && dist[i] < min) {
+                min = dist[i];
+                u = i;
+            }
+        }
+
+        if (u == -1)
+            break;
+
+        visited[u] = 1;
+
+
+        for (int v = 0; v < n; v++) {
+            if (!visited[v] && cost[u][v] != INF) {
+                if (dist[u] + cost[u][v] < dist[v]) {
+                    dist[v] = dist[u] + cost[u][v];
+                    path[v] = u;
+                }
+            }
+        }
+    }
+
+    cout << "\nVertex   Dist   Path\n";
+    for (int i = 0; i < n; i++) {
+        cout << i << "        " << dist[i] << "      " << path[i] << "\n";
+    }
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="m3" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m3')">&times;</span>
+<pre>
+    #include < iostream >
+using namespace std;
+
+struct Node {
+    int data, height;
+    Node *left, *right;
+    Node(int x) : data(x), height(1), left(NULL), right(NULL) {}
+};
+
+int h(Node* n) { return n ? n->height : 0; }
+int bal(Node* n) { return n ? h(n->left) - h(n->right) : 0; }
+
+Node* rRotate(Node* y) {
+    Node* x = y->left;
+    y->left = x->right;
+    x->right = y;
+    y->height = max(h(y->left), h(y->right)) + 1;
+    x->height = max(h(x->left), h(x->right)) + 1;
+    return x;
+}
+
+Node* lRotate(Node* x) {
+    Node* y = x->right;
+    x->right = y->left;
+    y->left = x;
+    x->height = max(h(x->left), h(x->right)) + 1;
+    y->height = max(h(y->left), h(y->right)) + 1;
+    return y;
+}
+
+Node* insert(Node* r, int k) {
+    if (!r) return new Node(k);
+    if (k < r->data) r->left = insert(r->left, k);
+    else if (k > r->data) r->right = insert(r->right, k);
+    else return r;
+
+    r->height = 1 + max(h(r->left), h(r->right));
+    int b = bal(r);
+
+    if (b > 1 && k < r->left->data) return rRotate(r);
+    if (b < -1 && k > r->right->data) return lRotate(r);
+    if (b > 1 && k > r->left->data) { r->left = lRotate(r->left); return rRotate(r); }
+    if (b < -1 && k < r->right->data) { r->right = rRotate(r->right); return lRotate(r); }
+
+    return r;
+}
+</pre>
+</div>
+</div>
+
+<div id="m4" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m4')">&times;</span>
+<pre>
+#include < iostream >
+using namespace std;
+
+void heapBottomUp(int H[], int n) {
+    for (int k = n / 2; k >= 1; k--) {
+        int v = H[k];
+        int heap = 0;
+
+        while (!heap && 2 * k <= n) {
+            int j = 2 * k;
+
+            if (j < n && H[j] < H[j + 1])
+                j = j + 1;
+
+            if (v >= H[j])
+                heap = 1;
+            else {
+                H[k] = H[j];
+                k = j;
+            }
+        }
+        H[k] = v;
+    }
+}
+
+int main() {
+    int H[] = {0, 10, 20, 15, 30, 40}; // index 0 unused
+    int n = 5;
+
+    heapBottomUp(H, n);
+
+    cout << "Max Heap: ";
+    for (int i = 1; i <= n; i++)
+        cout << H[i] << " ";
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="m5" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m5')">&times;</span>
+<pre>
+#include < bits/stdc++.h >
+using namespace std;
+
+class SegmentTree {
+    int n;
+    vector<int> st;
+
+public:
+    SegmentTree(vector<int>& a) {
+        n = a.size();
+        st.resize(4 * n);
+        build(1, 0, n - 1, a);
+    }
+
+    void build(int node, int l, int r, vector<int>& a) {
+        if (l == r) {
+            st[node] = a[l];
+            return;
+        }
+        int m = (l + r) / 2;
+        build(2*node, l, m, a);
+        build(2*node+1, m+1, r, a);
+        st[node] = st[2*node] + st[2*node+1];
+    }
+
+    int query(int node, int l, int r, int ql, int qr) {
+        if (qr < l || ql > r) return 0;
+        if (ql <= l && r <= qr) return st[node];
+        int m = (l + r) / 2;
+        return query(2*node, l, m, ql, qr) +
+               query(2*node+1, m+1, r, ql, qr);
+    }
+
+    void update(int node, int l, int r, int idx, int val) {
+        if (l == r) {
+            st[node] = val;
+            return;
+        }
+        int m = (l + r) / 2;
+        if (idx <= m) update(2*node, l, m, idx, val);
+        else update(2*node+1, m+1, r, idx, val);
+        st[node] = st[2*node] + st[2*node+1];
+    }
+
+    int rangeQuery(int l, int r) {
+        return query(1, 0, n - 1, l, r);
+    }
+
+    void pointUpdate(int idx, int val) {
+        update(1, 0, n - 1, idx, val);
+    }
+};
+</pre>
+</div>
+</div>
+
+<div id="m6" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('m6')">&times;</span>
+<pre>
+    
+#include < iostream >
+using namespace std;
+
+class UnionFind {
+    int parent[1000], rank[1000];
+
+public:
+    UnionFind(int n) {
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+            rank[i] = 0;
+        }
+    }
+
+    int find(int x) {
+        if (parent[x] != x)
+            parent[x] = find(parent[x]); // path compression
+        return parent[x];
+    }
+
+    void unite(int x, int y) {
+        int px = find(x);
+        int py = find(y);
+
+        if (px == py) return;
+
+        if (rank[px] < rank[py])
+            parent[px] = py;
+        else if (rank[px] > rank[py])
+            parent[py] = px;
+        else {
+            parent[py] = px;
+            rank[px]++;
+        }
+    }
+};
+
+int main() {
+    UnionFind uf(5);
+
+    uf.unite(0, 1);
+    uf.unite(1, 2);
+    uf.unite(3, 4);
+
+    if (uf.find(0) == uf.find(2))
+        cout << "0 and 2 are connected\n";
+    else
+        cout << "0 and 2 are not connected\n";
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+<br>
+<style>
+    #jsonBox {
+      display: none;
+      width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background: #0b1220;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    }
+
+    #jsonContent {
+      background: #020617;
+      color: #e5e7eb;
+      padding: 15px;
+      border-radius: 8px;
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #25d6ed;
+      color: white;
+      font-size: 15px;
+    }
+
+    button:hover {
+      background: #1db3d8;
+    }
+
+    .back-btn {
+      background: #111;
+      margin-bottom: 10px;
+    }
+  </style>
+  <h2>Autonomous Transport System</h2>
+
+<button onclick="openJSON()">View JSON</button>
+
+<div id="jsonBox">
+  <button class="back-btn" onclick="closeJSON()">⬅ Back</button>
+  <pre id="jsonContent"></pre>
+</div>
+
+<script>
+    
+const autonomousTransportData = {
+  "autonomous_transport_data": [
+    {
+      "time": "07:30",
+      "route_id": "R1",
+      "area": "Residential → IT Park",
+      "passengers": 42,
+      "shuttle_id": "SH-01",
+      "battery_percent": 78,
+      "delay_minutes": 0,
+      "priority_level": 2
+    },
+    {
+      "time": "08:15",
+      "route_id": "R2",
+      "area": "Metro Station → University",
+      "passengers": 58,
+      "shuttle_id": "SH-02",
+      "battery_percent": 64,
+      "delay_minutes": 3,
+      "priority_level": 3
+    },
+    {
+      "time": "09:00",
+      "route_id": "R3",
+      "area": "Hospital → City Center",
+      "passengers": 36,
+      "shuttle_id": "SH-03",
+      "battery_percent": 82,
+      "delay_minutes": 0,
+      "priority_level": 5
+    },
+    {
+      "time": "12:30",
+      "route_id": "R4",
+      "area": "Industrial Zone → Bus Terminal",
+      "passengers": 49,
+      "shuttle_id": "SH-04",
+      "battery_percent": 55,
+      "delay_minutes": 5,
+      "priority_level": 2
+    },
+    {
+      "time": "17:45",
+      "route_id": "R5",
+      "area": "Mall → Residential",
+      "passengers": 71,
+      "shuttle_id": "SH-05",
+      "battery_percent": 47,
+      "delay_minutes": 8,
+      "priority_level": 4
+    }
+  ]
+};
+
+function openJSON() {
+  document.getElementById("jsonBox").style.display = "block";
+  document.getElementById("jsonContent").textContent =
+    JSON.stringify(autonomousTransportData, null, 2);
+}
+
+function closeJSON() {
+  document.getElementById("jsonBox").style.display = "none";
+}
+</script>
+
+
+</section>
+
+
+
+
+<section id="urban-farming" class="subpage" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+
+    <h2 class="section-title">🌱 Urban Agriculture & Vertical Farms</h2>
+
+    <!-- Overview -->
+    <div class="course-box">
+        <h3>Business Case Overview</h3>
+        <p>
+            Urban farming and vertical agriculture help cities become self-sufficient by growing fresh food
+            using less space, water, and energy. These systems reduce food transportation costs and support
+            a sustainable local food ecosystem.
+        </p>
+        <p>
+          SDG :  Urban agriculture and vertical farms support SDG 2 (Zero Hunger) by boosting local food production. 
+            They also help SDG 11 (Sustainable Cities) by reducing transport, saving resources, and making cities more sustainable.
+        </p>
+    </div>
+
+    <h3 style="margin-top:30px;">Steps to Implement the Business Case</h3>
+
+    <!-- Steps -->
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3>Step 1: Identify Suitable Locations</h3>
+            <p>Convert rooftops, unused lots, and abandoned buildings into farming zones.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 2: Choose Vertical Farming Systems</h3>
+            <p>Select hydroponics, aeroponics, or aquaponics based on crop and space requirements.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 3: Install Controlled Environment Tech</h3>
+            <p>Use LED lighting, humidity control, nutrient sensors, and climate regulation systems.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 4: Smart Monitoring & Automation</h3>
+            <p>Automate irrigation, nutrient supply, and growth tracking using IoT sensors.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 5: Community & Supply Chain Integration</h3>
+            <p>Connect farms with local markets, restaurants, and community programs to ensure consistent demand.</p>
+        </div>
+
+    </div>
+  
+    <br>
+     <img src="images/p4.jpeg" class="centered-photo" alt="Photo">
+     <br>
+
+
+<h1>Urban-Farming -- Algorithms</h1>
+
+<div class="grid">
+
+<div class="box">
+<h3>Step 1: Identify Suitable Locations</h3>
+<p><b>Algorithm:</b> BFS / DFS</p>
+<p>Find viable rooftops, unused lots, and abandoned buildings using graph traversal.</p>
+<br> 
+<p> Time Complexity O(V+E)</p>
+<button onclick="openModal('ua1')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 2: Choose Vertical Farming Systems</h3>
+<p><b>Algorithm:</b> Segment Tree</p>
+<p>Efficiently query and update crop-system suitability across multiple locations.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('ua2')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 3: Install Controlled Environment Tech</h3>
+<p><b>Algorithm:</b> Lookup Table</p>
+<p>Precompute and store water, nutrient, and energy allocation results for fast retrieval.</p>
+<br> 
+<p> Time Complexity O(1)</p>
+<button onclick="openModal('ua3')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 4: Smart Monitoring & Automation</h3>
+<p><b>Algorithm:</b> Priority Queue (Heap)</p>
+<p>Manage sensor alerts/events efficiently, handling the most critical first.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('ua4')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 5: Community & Supply Chain Integration</h3>
+<p><b>Algorithm:</b> Kruskal’s Algorithm (MST)</p>
+<p>Connect farms to markets/restaurants at minimum total transportation cost.</p>
+<br> 
+<p> Time Complexity O(E log E)</p>
+<button onclick="openModal('ua5')">View Code</button>
+</div>
+
+</div>
+
+</section>
+
+<!-- MODALS -->
+<div id="ua1" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('ua1')">&times;</span>
+<pre>
+#include < iostream>
+using namespace std;
+
+int v = 5;
+int m[10][10] = {{0,1,1,0,0}, {1,0,0,1,1},
+        {1,0,0,0,1}, {0,1,0,0,0}, {0,1,1,0,0}};
+int visited[10];
+
+void dfs(int m[10][10], int v, int source) {
+    visited[source] = 1;
+    for (int i = 0; i < v; i++) {
+        if (m[source][i] == 1 && visited[i] == 0) {
+            cout << i << "\t";
+            dfs(m, v, i);
+        }
+    }
+}
+
+int main() {
+    int source;
+    for (int i = 0; i < v; i++)
+        visited[i] = 0;
+
+    cout << "Enter the source vertex: ";
+    cin >> source;
+
+    cout << "The DFS Traversal is... \n";
+    cout << source << "\t";
+    dfs(m, v, source);
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="ua2" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('ua2')">&times;</span>
+<pre>
+// Segment Tree example
+#include < iostream>
+#include < vector>
+using namespace std;
+
+int seg[400];
+vector< int> arr;
+int n;
+
+void build(int node,int l,int r){
+    if(l==r){ seg[node]=arr[l]; return; }
+    int mid=(l+r)/2;
+    build(2*node,l,mid);
+    build(2*node+1,mid+1,r);
+    seg[node]=max(seg[2*node],seg[2*node+1]);
+}
+
+int query(int node,int l,int r,int ql,int qr){
+    if(qr< l || ql>r) return -1e9;
+    if(ql<=l && r<=qr) return seg[node];
+    int mid=(l+r)/2;
+    return max(query(2*node,l,mid,ql,qr), query(2*node+1,mid+1,r,ql,qr));
+}
+
+int main(){
+    arr={3,1,4,5,2}; n=arr.size();
+    build(1,0,n-1);
+    cout<<"Max suitability in range 1-3: "<<query(1,0,n-1,1,3)<<endl;
+}
+</pre>
+</div>
+</div>
+
+<div id="ua3" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('ua3')">&times;</span>
+<pre>
+// Lookup Table example
+#include < iostream>
+using namespace std;
+
+int main(){
+    int water[5]={2,4,3,5,1};
+    int nutrients[5]={5,3,4,2,6};
+
+    int lookup[5][5];
+    for(int i=0;i< 5;i++){
+        for(int j=0;j < 5;j++){
+            lookup[i][j]=water[i]*nutrients[j]; // precompute some score
+        }
+    }
+
+    cout<<"Precomputed lookup for zone 2 and crop 3: "<< lookup[2][3]<< endl;
+}
+</pre>
+</div>
+</div>
+
+<div id="ua4" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('ua4')">&times;</span>
+<pre>
+// Priority Queue example
+#include < iostream>
+using namespace std;
+
+void heapBottomUp(int H[], int n) {
+    for (int k = n / 2; k >= 1; k--) {
+        int v = H[k];
+        int heap = 0;
+
+        while (!heap && 2 * k <= n) {
+            int j = 2 * k;
+
+            if (j < n && H[j] < H[j + 1])
+                j = j + 1;
+
+            if (v >= H[j])
+                heap = 1;
+            else {
+                H[k] = H[j];
+                k = j;
+            }
+        }
+        H[k] = v;
+    }
+}
+
+int main() {
+    int H[] = {0, 10, 20, 15, 30, 40}; // index 0 unused
+    int n = 5;
+
+    heapBottomUp(H, n);
+
+    cout << "Max Heap: ";
+    for (int i = 1; i <= n; i++)
+        cout << H[i] << " ";
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="ua5" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('ua5')">&times;</span>
+<pre>
+#include < iostream>
+using namespace std;
+
+struct Edge {
+    int u, v, w;
+};
+
+void bubbleSort(Edge edges[], int m) {
+    for (int i = 0; i < m - 1; i++) {
+        for (int j = 0; j < m - i - 1; j++) {
+            if (edges[j].w > edges[j + 1].w) {
+                Edge temp = edges[j];
+                edges[j] = edges[j + 1];
+                edges[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// Simple union (not optimized — acceptable for DAA basics)
+void Union(int parent[], int n, int u, int v) {
+    int temp = parent[u];
+    for (int i = 0; i < n; i++) {
+        if (parent[i] == temp)
+            parent[i] = parent[v];
+    }
+}
+
+bool Find(int parent[], int u, int v) {
+    return parent[u] == parent[v];
+}
+
+void kruskals(int n, int m, Edge edges[]) {
+    int parent[100];
+    for (int i = 0; i < n; i++)
+        parent[i] = i;
+
+    bubbleSort(edges, m);
+
+    int mstWeight = 0;
+    cout << "\nEdges in MST:\n";
+
+    for (int i = 0; i < m; i++) {
+        int u = edges[i].u;
+        int v = edges[i].v;
+        int w = edges[i].w;
+
+        if (!Find(parent, u, v)) {
+            cout << u << " -- " << v << " == " << w << endl;
+            mstWeight += w;
+            Union(parent, n, u, v);
+        }
+    }
+
+    cout << "Total Weight of MST = " << mstWeight << endl;
+}
+
+int main() {
+    int n, m;
+    cout << "Enter number of vertices and edges: ";
+    cin >> n >> m;
+
+    Edge edges[100];
+    cout << "Enter edges as: u v w\n";
+    for (int i = 0; i < m; i++)
+        cin >> edges[i].u >> edges[i].v >> edges[i].w;
+
+    kruskals(n, m, edges);
+    return 0;
+}
+</pre>
+</div>
+</div>
+<br>
+
+
+</section>
+
+
+<section id="digital-governance" class="subpage" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+
+    <h2 class="section-title">🏛 Digital Governance & Citizen Services</h2>
+
+    <!-- Overview -->
+    <div class="course-box">
+        <h3>Business Case Overview</h3>
+        <p>
+            This business case focuses on transforming traditional government processes into
+            fully digital, fast, transparent, and citizen-friendly services. It reduces paperwork,
+            increases accessibility, and improves public satisfaction through technology.
+        </p>
+        <p>
+            SDG : Digital governance supports SDG 16 by making government services transparent and accountable, 
+            and SDG 9 by using digital technology to deliver faster, smarter public services.
+        </p>
+    </div>
+
+    <h3 style="margin-top:30px;">Steps to Implement the Business Case</h3>
+
+    <!-- Steps -->
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3>Step 1: Build a Unified Digital Portal</h3>
+            <p>Create a single online platform where citizens can access all government services.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 2: Digital ID & Secure Logins</h3>
+            <p>Implement digital identification enabling secure access via biometrics or mobile authentication.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 3: Paperless Documentation</h3>
+            <p>Digitize certificates, licenses, payments, and approvals to eliminate manual paperwork.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 4: Real-Time Grievance System</h3>
+            <p>Introduce dashboards for complaint tracking, issue escalation, and resolution transparency.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 5: AI Chatbots for Citizen Help</h3>
+            <p>Deploy AI assistants to handle queries, guide applications, and reduce human workload.</p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 6: Data Security & Privacy Compliance</h3>
+            <p>Use encryption, role-based access, and cybersecurity policies to protect sensitive data.</p>
+        </div>
+
+    </div>
+    <br>
+    <img src="images/p5.jpeg" class="centered-photo" alt="Photo">
+    <br>
+    
+    <h1>🏛 Digital Governance & Citizen Services</h1>
+
+<div class="grid">
+
+<div class="box">
+<h3>Step 1: Unified Digital Portal</h3>
+<p><b>Algorithm:</b> Hash Table</p>
+<p>Fast lookup of government services by service ID.</p>
+<br> 
+<p> Time Complexity O(1)</p>
+<button onclick="openModal('dg1')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 2: Digital ID & Secure Login</h3>
+<p><b>Algorithm:</b> AVL Tree</p>
+<p>Balanced search for citizen identity verification.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('dg2')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 3: Paperless Documentation</h3>
+<p><b>Algorithm:</b> Trie</p>
+<p>Efficient prefix-based document retrieval.</p>
+<br> 
+<p> Time Complexity O(L)</p>
+<button onclick="openModal('dg3')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 4: Grievance System</h3>
+<p><b>Algorithm:</b> Priority Queue</p>
+<p>Resolve critical complaints first.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('dg4')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 5: AI Chatbots for Citizen Help</h3>
+<p><b>Algorithm:</b> Trie + Hash Table</p>
+<p>
+Trie enables fast prefix-based search of citizen queries,
+while Hash Tables provide constant-time mapping of intents
+to service responses, ensuring scalable and instant assistance.
+</p>
+<br> 
+<p> Time Complexity O(L)</p>
+<button onclick="openModal('dg5')">View Code</button>
+</div>
+
+
+<div class="box">
+<h3>Step 6: Data Security & Privacy</h3>
+<p><b>Algorithm:</b> Graph + DFS</p>
+<p>Validate access permissions and role hierarchy.</p>
+<br> 
+<p> Time Complexity O(V+E)</p>
+<button onclick="openModal('dg6')">View Code</button>
+</div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="dg1" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('dg1')">&times;</span>
+<pre>
+// hash Table
+#include <iostream>
+using namespace std;
+
+#define SIZE 10
+
+class Node {
+public:
+    int key;
+    Node* next;
+    Node(int k) : key(k), next(NULL) {}
+};
+
+class HashTable {
+    Node* table[SIZE];
+
+public:
+    HashTable() {
+        for (int i = 0; i < SIZE; i++)
+            table[i] = NULL;
+    }
+
+    int hashFunction(int key) {
+        return key % SIZE;
+    }
+
+    void insert(int key) {
+        int idx = hashFunction(key);
+        Node* newNode = new Node(key);
+        newNode->next = table[idx];
+        table[idx] = newNode;
+    }
+
+    bool search(int key) {
+        int idx = hashFunction(key);
+        Node* temp = table[idx];
+        while (temp) {
+            if (temp->key == key)
+                return true;
+            temp = temp->next;
+        }
+        return false;
+    }
+
+    void display() {
+        for (int i = 0; i < SIZE; i++) {
+            cout << i << ": ";
+            Node* temp = table[i];
+            while (temp) {
+                cout << temp->key << " -> ";
+                temp = temp->next;
+            }
+            cout << "NULL\n";
+        }
+    }
+};
+
+int main() {
+    HashTable ht;
+
+    ht.insert(10);
+    ht.insert(20);
+    ht.insert(15);
+    ht.insert(25);
+    ht.insert(30);
+
+    ht.display();
+
+    cout << "\nSearch 15: " << (ht.search(15) ? "Found" : "Not Found");
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="dg2" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('dg2')">&times;</span>
+<pre>
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int key, height;
+    Node *left, *right;
+    Node(int k) : key(k), height(1), left(NULL), right(NULL) {}
+};
+
+int h(Node* n) {
+    return n ? n->height : 0;
+}
+
+int balance(Node* n) {
+    return n ? h(n->left) - h(n->right) : 0;
+}
+
+Node* rightRotate(Node* y) {
+    Node* x = y->left;
+    Node* T2 = x->right;
+
+    x->right = y;
+    y->left = T2;
+
+    y->height = max(h(y->left), h(y->right)) + 1;
+    x->height = max(h(x->left), h(x->right)) + 1;
+
+    return x;
+}
+
+Node* leftRotate(Node* x) {
+    Node* y = x->right;
+    Node* T2 = y->left;
+
+    y->left = x;
+    x->right = T2;
+
+    x->height = max(h(x->left), h(x->right)) + 1;
+    y->height = max(h(y->left), h(y->right)) + 1;
+
+    return y;
+}
+
+Node* insert(Node* node, int key) {
+    if (!node) return new Node(key);
+
+    if (key < node->key)
+        node->left = insert(node->left, key);
+    else if (key > node->key)
+        node->right = insert(node->right, key);
+    else
+        return node; // no duplicates
+
+    node->height = 1 + max(h(node->left), h(node->right));
+    int b = balance(node);
+
+    // LL
+    if (b > 1 && key < node->left->key)
+        return rightRotate(node);
+
+    // RR
+    if (b < -1 && key > node->right->key)
+        return leftRotate(node);
+
+    // LR
+    if (b > 1 && key > node->left->key) {
+        node->left = leftRotate(node->left);
+        return rightRotate(node);
+    }
+
+    // RL
+    if (b < -1 && key < node->right->key) {
+        node->right = rightRotate(node->right);
+        return leftRotate(node);
+    }
+
+    return node;
+}
+
+void inorder(Node* root) {
+    if (root) {
+        inorder(root->left);
+        cout << root->key << " ";
+        inorder(root->right);
+    }
+}
+
+int main() {
+    Node* root = NULL;
+
+    root = insert(root, 30);
+    root = insert(root, 20);
+    root = insert(root, 40);
+    root = insert(root, 10);
+
+    inorder(root);
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="dg3" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('dg3')">&times;</span>
+<pre>
+// Trie - Document Storage
+#include <iostream>
+using namespace std;
+
+struct TrieNode {
+    TrieNode* child[26];
+    bool isEnd;
+
+    TrieNode() {
+        isEnd = false;
+        for (int i = 0; i < 26; i++)
+            child[i] = NULL;
+    }
+};
+
+class Trie {
+    TrieNode* root;
+
+public:
+    Trie() {
+        root = new TrieNode();
+    }
+
+    void insert(string word) {
+        TrieNode* cur = root;
+        for (char c : word) {
+            int idx = c - 'a';
+            if (!cur->child[idx])
+                cur->child[idx] = new TrieNode();
+            cur = cur->child[idx];
+        }
+        cur->isEnd = true;
+    }
+
+    bool search(string word) {
+        TrieNode* cur = root;
+        for (char c : word) {
+            int idx = c - 'a';
+            if (!cur->child[idx])
+                return false;
+            cur = cur->child[idx];
+        }
+        return cur->isEnd;
+    }
+
+    bool startsWith(string prefix) {
+        TrieNode* cur = root;
+        for (char c : prefix) {
+            int idx = c - 'a';
+            if (!cur->child[idx])
+                return false;
+            cur = cur->child[idx];
+        }
+        return true;
+    }
+};
+
+int main() {
+    Trie t;
+    t.insert("apple");
+    t.insert("app");
+
+    cout << t.search("app") << endl;     // 1
+    cout << t.search("appl") << endl;    // 0
+    cout << t.startsWith("ap") << endl;  // 1
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="dg4" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('dg4')">&times;</span>
+<pre>
+// Priority Queue - Grievances
+#include <iostream>
+using namespace std;
+
+class MinHeap {
+    int H[1000];
+    int size;
+
+public:
+    MinHeap() { size = 0; }
+
+    void insert(int x) {
+        int i = ++size;
+        while (i > 1 && H[i / 2] > x) {
+            H[i] = H[i / 2];
+            i /= 2;
+        }
+        H[i] = x;
+    }
+
+    int deleteMin() {
+        if (size == 0) return -1;
+
+        int min = H[1];
+        int last = H[size--];
+
+        int i = 1, j = 2;
+        while (j <= size) {
+            if (j < size && H[j] > H[j + 1])
+                j++;
+            if (last <= H[j])
+                break;
+            H[i] = H[j];
+            i = j;
+            j = 2 * i;
+        }
+        H[i] = last;
+        return min;
+    }
+
+    void display() {
+        for (int i = 1; i <= size; i++)
+            cout << H[i] << " ";
+        cout << endl;
+    }
+};
+
+int main() {
+    MinHeap h;
+
+    h.insert(20);
+    h.insert(5);
+    h.insert(15);
+    h.insert(22);
+    h.insert(3);
+
+    h.display();          // Heap order
+    cout << h.deleteMin(); // 3
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<div id="dg5" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('dg5')">&times;</span>
+<pre>
+#include < iostream>
+#include < unordered_map>
+using namespace std;
+
+int main() {
+    unordered_map< string, string> serviceHelp;
+
+    serviceHelp["passport"] = "Apply Passport → Identity Services";
+    serviceHelp["aadhaar"]  = "Update Aadhaar → Citizen Records";
+    serviceHelp["tax"]      = "Pay Tax → Revenue Services";
+
+    string query;
+    cout << "Enter service keyword: ";
+    cin >> query;
+
+    if(serviceHelp.count(query))
+        cout << serviceHelp[query];
+    else
+        cout << "Service not found";
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+
+<div id="dg6" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal('dg6')">&times;</span>
+<pre>
+// Graph + DFS - Access Control
+#include <iostream>
+using namespace std;
+
+class Graph {
+    int V;
+    int adj[100][100];   // adjacency matrix
+    bool visited[100];
+
+public:
+    Graph(int v) {
+        V = v;
+        for (int i = 0; i < V; i++) {
+            visited[i] = false;
+            for (int j = 0; j < V; j++)
+                adj[i][j] = 0;
+        }
+    }
+
+    void addEdge(int u, int v) {
+        adj[u][v] = 1;
+        adj[v][u] = 1;   // remove this line for directed graph
+    }
+
+    void DFS(int v) {
+        visited[v] = true;
+        cout << v << " ";
+
+        for (int i = 0; i < V; i++) {
+            if (adj[v][i] && !visited[i])
+                DFS(i);
+        }
+    }
+};
+
+int main() {
+    Graph g(5);
+
+    g.addEdge(0, 1);
+    g.addEdge(0, 2);
+    g.addEdge(1, 3);
+    g.addEdge(1, 4);
+
+    cout << "DFS traversal: ";
+    g.DFS(0);
+
+    return 0;
+}
+</pre>
+</div>
+</div>
+
+<script>
+function openModal(id){
+    document.getElementById(id).style.display="block";
+}
+function closeModal(id){
+    document.getElementById(id).style.display="none";
+}
+</script>
+<br>
+<title>Digital Governance Services</title>
+ <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);}
+ 
+  </style>
+</head>
+<body>
+  <h1>Digital Governance Services</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Service ID</th>
+        <th>Service Name</th>
+        <th>Digital Adoption (%)</th>
+        <th>Monthly Users</th>
+        <th>Uptime (%)</th>
+        <th>Operational Cost (USD)</th>
+        <th>User Satisfaction Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>DG-01</td>
+        <td>Online Tax Filing</td>
+        <td>85</td>
+        <td>125,000</td>
+        <td>99.5</td>
+        <td>45,000</td>
+        <td>4.6</td>
+      </tr>
+      <tr>
+        <td>DG-02</td>
+        <td>E-Health Records</td>
+        <td>72</td>
+        <td>90,000</td>
+        <td>99.2</td>
+        <td>60,000</td>
+        <td>4.3</td>
+      </tr>
+      <tr>
+        <td>DG-03</td>
+        <td>Online Birth/Death Registration</td>
+        <td>95</td>
+        <td>40,000</td>
+        <td>99.8</td>
+        <td>20,000</td>
+        <td>4.8</td>
+      </tr>
+      <tr>
+        <td>DG-04</td>
+        <td>Municipal Grievance Portal</td>
+        <td>65</td>
+        <td>50,000</td>
+        <td>98.9</td>
+        <td>15,000</td>
+        <td>4.1</td>
+      </tr>
+      <tr>
+        <td>DG-05</td>
+        <td>E-Procurement Platform</td>
+        <td>78</td>
+        <td>30,000</td>
+        <td>99.3</td>
+        <td>40,000</td>
+        <td>4.4</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+</section>
+
+<section id="tourism-tech" class="subpage" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+
+    <h2 class="section-title">🎭 Tourism & Cultural Tech Experiences</h2>
+
+    <!-- Overview -->
+    <div class="course-box">
+        <h3>Business Case Overview</h3>
+        <p>
+            This business case focuses on transforming tourism using immersive technologies like AR/VR,
+            AI-based guides, smart navigation, and digital cultural preservation. The goal is to increase
+            visitor engagement, promote heritage, and boost the city’s tourism economy.
+        </p>
+        <p>
+            SDG :Tourism Tech supports SDG 8 by boosting local economies through smart travel services and SDG 11 by promoting sustainable,
+             well-managed tourism using digital platforms and data-driven planning.
+        </p>
+    </div>
+
+    <h3 style="margin-top:30px;">Steps to Implement the Business Case</h3>
+
+    <!-- Steps -->
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3>Step 1: AR-Based City Exploration</h3>
+            <p>
+                Deploy augmented reality apps that show historical facts, 3D reconstructions, and hidden stories at landmarks.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 2: VR Cultural Experience Centers</h3>
+            <p>
+                Build immersive VR rooms where visitors can experience ancient civilizations, festivals, and lost monuments.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 3: Smart Tourist Navigation</h3>
+            <p>
+                Install IoT beacons and smart signboards offering multilingual directions, crowd updates, and route suggestions.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 4: AI-Powered Personal Tour Guides</h3>
+            <p>
+                Use AI chat-based guides to recommend routes, food spots, heritage sites, and cultural activities.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 5: Digital Cultural Preservation</h3>
+            <p>
+                Record local traditions, folklore, dances, and crafts in high-quality digital format to archive and display.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 6: Smart Ticketing & Crowd Management</h3>
+            <p>
+                Implement e-ticket systems, timed entry, and live visitor tracking to prevent congestion at major attractions.
+            </p>
+        </div>
+
+    </div>
+    <script>
+function openModal(id){ document.getElementById(id).style.display="block"; }
+function closeModal(id){ document.getElementById(id).style.display="none"; }
+</script>
+</head>
+
+<body>
+<br>
+     <img src="images/p6.jpeg" class="centered-photo" alt="Photo">
+<br>
+<h1>Tourism & Cultural Tech Experiences</h1>
+
+<div class="grid">
+
+<!-- STEP 1 -->
+<div class="box">
+<h3>Step 1: AR-Based City Exploration</h3>
+<p><b>Algorithm:</b> Selection Sort</p>
+<p>Sort landmarks by historical importance.</p>
+<br> 
+<p> Time Complexity O(n^2)</p>
+<button onclick="openModal('s1')">View Code</button>
+</div>
+
+<!-- STEP 2 -->
+<div class="box">
+<h3>Step 2: VR Cultural Experience</h3>
+<p><b>Algorithm:</b> Insertion Sort</p>
+<p>Dynamically sort visitor preferences.</p>
+<br> 
+<p> Time Complexity O(n^2)</p>
+<button onclick="openModal('s2')">View Code</button>
+</div>
+
+<!-- STEP 3 -->
+<div class="box">
+<h3>Step 3: Smart Tourist Navigation</h3>
+<p><b>Algorithm:</b> Merge Sort</p>
+<p>Sort routes by distance and crowd density.</p>
+<br> 
+<p> Time Complexity O(n log n)</p>
+<button onclick="openModal('s3')">View Code</button>
+</div>
+
+<!-- STEP 4 -->
+<div class="box">
+<h3>Step 4: AI Tour Guide</h3>
+<p><b>Algorithm:</b> Quick Sort</p>
+<p>Rank recommendations by relevance.</p>
+<br> 
+<p> Time Complexity O(n log n)avg</p>
+<button onclick="openModal('s4')">View Code</button>
+</div>
+
+<!-- STEP 5 -->
+<div class="box">
+<h3>Step 5: Digital Cultural Preservation</h3>
+<p><b>Algorithm:</b> Bubble Sort</p>
+<br> 
+<p> Time Complexity O(n^2)</p>
+<p>Verify archival ordering consistency.</p>
+<button onclick="openModal('s5')">View Code</button>
+</div>
+
+<!-- STEP 6 -->
+<div class="box">
+<h3>Step 6: Smart Ticketing</h3>
+<p><b>Algorithm:</b> Heap Sort</p>
+<p>Sort visitors by entry priority.</p>
+<br> 
+<p> Time Complexity O(n log n)</p>
+<button onclick="openModal('s6')">View Code</button>
+</div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="s1" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('s1')">&times;</span>
+<pre>
+// Selection Sort
+#include <iostream>
+using namespace std;
+
+void selectionSort(int a[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        int min = i;
+        for (int j = i + 1; j < n; j++) {
+            if (a[j] < a[min])
+                min = j;
+        }
+        if (min != i)
+            swap(a[i], a[min]);
+    }
+}
+
+int main() {
+    int a[] = {64, 25, 12, 22, 11};
+    int n = 5;
+
+    selectionSort(a, n);
+
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+
+    return 0;
+}
+</pre>
+</div></div>
+
+<div id="s2" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('s2')">&times;</span>
+<pre>
+// Insertion Sort
+#include <iostream>
+using namespace std;
+int main(){
+    int a[]={8,3,5,2}, n=4;
+    for(int i=1;i<n;i++){
+        int key=a[i], j=i-1;
+        while(j>=0 && a[j]>key){
+            a[j+1]=a[j]; j--;
+        }
+        a[j+1]=key;
+    }
+    for(int x:a) cout<<x<<" ";
+}
+</pre>
+</div></div>
+
+<div id="s3" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('s3')">&times;</span>
+<pre>
+// Merge Sort
+#include <iostream>
+using namespace std;
+
+// -------------------------------------------------------
+// Merge() : merges two sorted arrays B and C into A
+// -------------------------------------------------------
+void Merge(int B[], int p, int C[], int q, int A[]) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < p && j < q) {
+        if (B[i] <= C[j]) {
+            A[k] = B[i];
+            i = i + 1;
+        } else {
+            A[k] = C[j];
+            j = j + 1;
+        }
+        k = k + 1;
+    }
+
+    // If elements remain in C
+    if (i == p) {
+        while (j < q) {
+            A[k] = C[j];
+            j++;
+            k++;
+        }
+    }
+    // If elements remain in B
+    else {
+        while (i < p) {
+            A[k] = B[i];
+            i++;
+            k++;
+        }
+    }
+}
+
+// -------------------------------------------------------
+// MergeSort() : recursive merge sort following your notes
+// -------------------------------------------------------
+void MergeSort(int A[], int n) {
+    if (n > 1) {
+        int mid = n / 2;
+
+        // Create B and C arrays
+        int p = mid;
+        int q = n - mid;
+
+        int B[p];
+        int C[q];
+
+        // Copy A[0 ... mid-1] to B
+        for (int i = 0; i < p; i++)
+            B[i] = A[i];
+
+        // Copy A[mid ... n-1] to C
+        for (int i = 0; i < q; i++)
+            C[i] = A[mid + i];
+
+        // Recursive calls
+        MergeSort(B, p);
+        MergeSort(C, q);
+
+        // Merge sorted B and C into A
+        Merge(B, p, C, q, A);
+    }
+}
+
+// -------------------------------------------------------
+int main() {
+    int A[] = {9, 4, 7, 2, 6, 3, 1};
+    int n = sizeof(A) / sizeof(A[0]);
+
+    MergeSort(A, n);
+
+    cout << "Sorted Array: ";
+    for (int i = 0; i < n; i++)
+        cout << A[i] << " ";
+
+    return 0;
+}
+</pre>
+</div></div>
+
+<div id="s4" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('s4')">&times;</span>
+<pre>
+// Quick Sort
+#include <iostream>
+using namespace std;
+
+// ------------------------------------------------------------
+// PARTITION(A[l..r])  -- Hoare partition as per textbook
+// ------------------------------------------------------------
+int Partition(int A[], int l, int r) {
+    int p = A[l];      // pivot
+    int i = l;         // i starts at l
+    int j = r + 1;     // j starts at r+1
+
+    while (true) {
+
+        // repeat i = i + 1 until A[i] >= p
+        do {
+            i++;
+        } while (i <= r && A[i] < p);
+
+        // repeat j = j - 1 until A[j] <= p
+        do {
+            j--;
+        } while (A[j] > p);
+
+        // if i >= j, stop
+        if (i >= j)
+            break;
+
+        // swap A[i] and A[j]
+        swap(A[i], A[j]);
+    }
+
+    // swap pivot A[l] with A[j]
+    swap(A[l], A[j]);
+
+    return j;   // return pivot index
+}
+
+// ------------------------------------------------------------
+// QUICKSORT(A[l..r])
+// ------------------------------------------------------------
+void QuickSort(int A[], int l, int r) {
+    if (l < r) {
+        int s = Partition(A, l, r);
+        QuickSort(A, l, s - 1);
+        QuickSort(A, s + 1, r);
+    }
+}
+
+// ------------------------------------------------------------
+int main() {
+    int A[] = {0, 8, 3, 1, 7, 0, 10, 2}; 
+    int n = 7;   // ignoring index 0 to match algorithm style
+
+    QuickSort(A, 1, n);
+
+    cout << "Sorted Array: ";
+    for (int i = 1; i <= n; i++)
+        cout << A[i] << " ";
+
+    return 0;
+}
+</pre>
+</div></div>
+
+<div id="s5" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('s5')">&times;</span>
+<pre>
+// Bubble Sort
+#include <iostream>
+using namespace std;
+int main(){
+    int a[]={4,3,2,1}, n=4;
+    for(int i=0;i<n-1;i++)
+        for(int j=0;j<n-i-1;j++)
+            if(a[j]>a[j+1])
+                swap(a[j],a[j+1]);
+    for(int x:a) cout<<x<<" ";
+}
+</pre>
+</div></div>
+
+<div id="s6" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('s6')">&times;</span>
+<pre>
+// Heap Sort
+#include <iostream>
+using namespace std;
+
+void heapify(int a[], int n, int i) {
+    int largest = i;
+    int l = 2*i + 1;
+    int r = 2*i + 2;
+
+    if (l < n && a[l] > a[largest])
+        largest = l;
+    if (r < n && a[r] > a[largest])
+        largest = r;
+
+    if (largest != i) {
+        swap(a[i], a[largest]);
+        heapify(a, n, largest);
+    }
+}
+
+void heapSort(int a[], int n) {
+    // Step 1: build max heap
+    for (int i = n/2 - 1; i >= 0; i--)
+        heapify(a, n, i);
+
+    // Step 2: delete max one by one
+    for (int i = n - 1; i > 0; i--) {
+        swap(a[0], a[i]);
+        heapify(a, i, 0);
+    }
+}
+
+int main() {
+    int a[] = {12, 11, 13, 5, 6, 7};
+    int n = 6;
+
+    heapSort(a, n);
+
+    for (int i = 0; i < n; i++)
+        cout << a[i] << " ";
+
+    return 0;
+}
+</pre>
+</div></div>
+<br>
+
+<h2>Tourism Tech Data</h2>
+
+<div class="container">
+
+  <div id="tourismListContainer">
+    <button onclick="openTourismDataset()">View JSON</button>
+    <ul id="tourismList"></ul>
+  </div>
+
+  <div id="tourismDatasetView" style="display:none;">
+    <button class="back-btn" onclick="closeTourismDataset()">⬅</button>
+    <pre id="tourismDatasetArea"></pre>
+  </div>
+
+</div>
+
+<script>
+const tourismTechData = {
+  tourism_tech_data: [
+    {experience_name:"Virtual Museum Tour", rating:4.7},
+    {experience_name:"AR City Heritage Walk", rating:4.5},
+    {experience_name:"Interactive Cultural Workshops", rating:4.6},
+    {experience_name:"360° Virtual Festival", rating:4.8},
+    {experience_name:"AR Archaeological Exploration", rating:4.4}
+  ]
+};
+
+// populate list
+const ulTourism = document.getElementById("tourismList");
+tourismTechData.tourism_tech_data.forEach(t => {
+  const li = document.createElement("li");
+  li.textContent = `${t.experience_name} | Rating: ${t.rating}`;
+  ulTourism.appendChild(li);
+});
+
+function openTourismDataset() {
+  document.getElementById("tourismDatasetView").style.display = "block";
+  document.getElementById("tourismListContainer").style.display = "none";
+  document.getElementById("tourismDatasetArea").textContent =
+    JSON.stringify(tourismTechData, null, 2);
+}
+
+function closeTourismDataset() {
+  document.getElementById("tourismDatasetView").style.display = "none";
+  document.getElementById("tourismListContainer").style.display = "block";
+}
+</script>
+
+
+
+</section>
+
+<section id="nextgen-retail" class="subpage" style="display:none;">
+
+    <button class="back-btn" onclick="goBack()">⟵ Back</button>
+
+    <h2 class="section-title">🛒 Next-Gen Retail & Logistics</h2>
+
+    <!-- Overview -->
+    <div class="course-box">
+        <h3>Business Case Overview</h3>
+        <p>
+            This business case focuses on modernizing city retail and logistics using automated systems,
+            AI-driven inventory, drone/robot deliveries, and hyper-efficient distribution hubs — enabling
+            faster service, lower costs, and seamless customer experience.
+        </p>
+        <p>
+            SDG : Next-Gen Retail & Logistics supports SDG 9 by driving innovation through automation and smart supply chains, and
+             SDG 12 by reducing waste and emissions with efficient inventory and delivery systems.
+        </p>
+    </div>
+
+    <h3 style="margin-top:30px;">Steps to Implement the Business Case</h3>
+
+    <!-- Steps -->
+    <div class="course-box-container">
+
+        <div class="course-box">
+            <h3>Step 1: Smart Inventory Systems</h3>
+            <p>
+                Deploy AI tools that track stock in real time, predict demand, and automate restocking.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 2: Automated Warehousing</h3>
+            <p>
+                Use robotic arms and autonomous movers to speed up sorting, packing, and warehouse operations.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 3: Micro Fulfillment Centers</h3>
+            <p>
+                Set up compact 24/7 hubs inside the city for rapid e-commerce delivery and local order pickup.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 4: Drone & Robot Delivery</h3>
+            <p>
+                Enable last-mile delivery using drones for lightweight packages and autonomous ground robots for urban routes.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 5: Smart Retail Stores</h3>
+            <p>
+                Introduce checkout-free shops, smart shelves, and personalized recommendations using computer vision and sensors.
+            </p>
+        </div>
+
+        <div class="course-box">
+            <h3>Step 6: Integrated Logistics Platform</h3>
+            <p>
+                Create a unified dashboard for tracking shipments, optimizing routes, managing fleets, and reducing delays.
+            </p>
+        </div>
+
+    </div>
+
+<script>
+function openModal(id){ document.getElementById(id).style.display="block"; }
+function closeModal(id){ document.getElementById(id).style.display="none"; }
+</script>
+</head>
+
+<body>
+<br>
+     <img src="images/p7.jpeg" class="centered-photo" alt="Photo">
+<br>
+<h1>Next-Gen Retail & Logistics</h1>
+
+<div class="grid">
+
+<div class="box">
+<h3>Step 1: Smart Inventory Systems</h3>
+<p><b>Algorithm:</b> Segment Tree</p>
+<p>Real-time stock updates and range queries.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('r1')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 2: Automated Warehousing</h3>
+<p><b>Algorithm:</b> Priority Queue (Heap)</p>
+<p>Process urgent warehouse tasks first.</p>
+<br>
+<p>time Complexity O(log n)</p>
+<button onclick="openModal('r2')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 3: Micro Fulfillment Centers</h3>
+<p><b>Algorithm:</b> Binary Search</p>
+<p>Fast lookup of inventory & nearest hubs.</p>
+<br> 
+<p> Time Complexity O(log n)</p>
+<button onclick="openModal('r3')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 4: Drone & Robot Delivery</h3>
+<p><b>Algorithm:</b> Dijkstra’s Algorithm</p>
+<p>Shortest delivery path across city graph.</p>
+<br> 
+<p> Time Complexity O((V+E)log V)</p>
+<button onclick="openModal('r4')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 5: Smart Retail Stores</h3>
+<p><b>Algorithm:</b> Insertion Sort</p>
+<p>Dynamic reordering of customer preferences.</p>
+<br> 
+<p> Time Complexity O(n^2)</p>
+<button onclick="openModal('r5')">View Code</button>
+</div>
+
+<div class="box">
+<h3>Step 6: Integrated Logistics Platform</h3>
+<p><b>Algorithm:</b> Merge Sort</p>
+<p>Efficient sorting of massive shipment data.</p>
+<br> 
+<p> Time Complexity O(n log n)</p>
+<button onclick="openModal('r6')">View Code</button>
+</div>
+
+</div>
+
+<!-- MODALS -->
+
+<div id="r1" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('r1')">&times;</span>
+<pre>
+// Segment Tree (Range Sum)
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data, height;
+    Node *left, *right;
+    Node(int x) : data(x), height(1), left(NULL), right(NULL) {}
+};
+
+int h(Node* n) { return n ? n->height : 0; }
+int bal(Node* n) { return n ? h(n->left) - h(n->right) : 0; }
+
+Node* rRotate(Node* y) {
+    Node* x = y->left;
+    y->left = x->right;
+    x->right = y;
+    y->height = max(h(y->left), h(y->right)) + 1;
+    x->height = max(h(x->left), h(x->right)) + 1;
+    return x;
+}
+
+Node* lRotate(Node* x) {
+    Node* y = x->right;
+    x->right = y->left;
+    y->left = x;
+    x->height = max(h(x->left), h(x->right)) + 1;
+    y->height = max(h(y->left), h(y->right)) + 1;
+    return y;
+}
+
+Node* insert(Node* r, int k) {
+    if (!r) return new Node(k);
+    if (k < r->data) r->left = insert(r->left, k);
+    else if (k > r->data) r->right = insert(r->right, k);
+    else return r;
+
+    r->height = 1 + max(h(r->left), h(r->right));
+    int b = bal(r);
+
+    if (b > 1 && k < r->left->data) return rRotate(r);
+    if (b < -1 && k > r->right->data) return lRotate(r);
+    if (b > 1 && k > r->left->data) { r->left = lRotate(r->left); return rRotate(r); }
+    if (b < -1 && k < r->right->data) { r->right = rRotate(r->right); return lRotate(r); }
+
+    return r;
+}
+</pre>
+</div></div>
+
+<div id="r2" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('r2')">&times;</span>
+<pre>
+// Priority Queue using max heap
+#include <iostream>
+using namespace std;
+
+void heapBottomUp(int H[], int n) {
+    for (int k = n / 2; k >= 1; k--) {
+        int v = H[k];
+        int heap = 0;
+
+        while (!heap && 2 * k <= n) {
+            int j = 2 * k;
+
+            if (j < n && H[j] < H[j + 1])
+                j = j + 1;
+
+            if (v >= H[j])
+                heap = 1;
+            else {
+                H[k] = H[j];
+                k = j;
+            }
+        }
+        H[k] = v;
+    }
+}
+
+int main() {
+    int H[] = {0, 10, 20, 15, 30, 40}; // index 0 unused
+    int n = 5;
+
+    heapBottomUp(H, n);
+
+    cout << "Max Heap: ";
+    for (int i = 1; i <= n; i++)
+        cout << H[i] << " ";
+
+    return 0;
+}
+
+</pre>
+</div></div>
+
+<div id="r3" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('r3')">&times;</span>
+<pre>
+// Binary Search
+#include <iostream>
+using namespace std;
+
+int binarySearch(int a[], int n, int key) {
+    int l = 0, r = n - 1;
+    while (l <= r) {
+        int mid = l + (r - l) / 2;
+        if (a[mid] == key)
+            return mid;
+        else if (a[mid] < key)
+            l = mid + 1;
+        else
+            r = mid - 1;
+    }
+    return -1; // not found
+}
+
+int main() {
+    int a[] = {1, 3, 5, 7, 9};
+    int n = 5, key = 5;
+
+    int idx = binarySearch(a, n, key);
+    if (idx != -1)
+        cout << "Found at index " << idx;
+    else
+        cout << "Not found";
+}
+</pre>
+</div></div>
+
+<div id="r4" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('r4')">&times;</span>
+<pre>
+// Dijkstra
+#include <iostream>
+using namespace std;
+
+#define MAXN 100
+#define INF 999
+
+int main() {
+    int n;
+    cout << "Enter the number of Vertices\n";
+    cin >> n;
+
+    int cost[MAXN][MAXN];
+
+    cout << "Enter the cost matrix: (Enter 999 for Infinity)\n";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            cin >> cost[i][j];
+        }
+    }
+
+    int source;
+    cout << "Enter the source\n";
+    cin >> source;
+
+    int dist[MAXN], path[MAXN], visited[MAXN];
+
+
+    for (int i = 0; i < n; i++) {
+        dist[i] = cost[source][i];
+        path[i] = source;
+        visited[i] = 0;
+    }
+    visited[source] = 1;
+
+
+    for (int iter = 0; iter < n - 1; iter++) {
+        int u = -1;
+        int min = INF + 1;
+
+
+        for (int i = 0; i < n; i++) {
+            if (!visited[i] && dist[i] < min) {
+                min = dist[i];
+                u = i;
+            }
+        }
+
+        if (u == -1)
+            break;
+
+        visited[u] = 1;
+
+
+        for (int v = 0; v < n; v++) {
+            if (!visited[v] && cost[u][v] != INF) {
+                if (dist[u] + cost[u][v] < dist[v]) {
+                    dist[v] = dist[u] + cost[u][v];
+                    path[v] = u;
+                }
+            }
+        }
+    }
+
+    cout << "\nVertex   Dist   Path\n";
+    for (int i = 0; i < n; i++) {
+        cout << i << "        " << dist[i] << "      " << path[i] << "\n";
+    }
+
+    return 0;
+}
+</pre>
+</div></div>
+
+<div id="r5" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('r5')">&times;</span>
+<pre>
+// Insertion Sort
+#include <iostream>
+using namespace std;
+int main(){
+    int a[]={7,3,5,2},n=4;
+    for(int i=1;i<n;i++){
+        int key=a[i],j=i-1;
+        while(j>=0 && a[j]>key){
+            a[j+1]=a[j]; j--;
+        }
+        a[j+1]=key;
+    }
+    for(int x:a) cout<<x<<" ";
+}
+</pre>
+</div></div>
+
+<div id="r6" class="modal"><div class="modal-content">
+<span class="close" onclick="closeModal('r6')">&times;</span>
+<pre>
+// Merge Sort
+#include <iostream>
+using namespace std;
+
+// -------------------------------------------------------
+// Merge() : merges two sorted arrays B and C into A
+// -------------------------------------------------------
+void Merge(int B[], int p, int C[], int q, int A[]) {
+    int i = 0, j = 0, k = 0;
+
+    while (i < p && j < q) {
+        if (B[i] <= C[j]) {
+            A[k] = B[i];
+            i = i + 1;
+        } else {
+            A[k] = C[j];
+            j = j + 1;
+        }
+        k = k + 1;
+    }
+
+    // If elements remain in C
+    if (i == p) {
+        while (j < q) {
+            A[k] = C[j];
+            j++;
+            k++;
+        }
+    }
+    // If elements remain in B
+    else {
+        while (i < p) {
+            A[k] = B[i];
+            i++;
+            k++;
+        }
+    }
+}
+
+// -------------------------------------------------------
+// MergeSort() : recursive merge sort following your notes
+// -------------------------------------------------------
+void MergeSort(int A[], int n) {
+    if (n > 1) {
+        int mid = n / 2;
+
+        // Create B and C arrays
+        int p = mid;
+        int q = n - mid;
+
+        int B[p];
+        int C[q];
+
+        // Copy A[0 ... mid-1] to B
+        for (int i = 0; i < p; i++)
+            B[i] = A[i];
+
+        // Copy A[mid ... n-1] to C
+        for (int i = 0; i < q; i++)
+            C[i] = A[mid + i];
+
+        // Recursive calls
+        MergeSort(B, p);
+        MergeSort(C, q);
+
+        // Merge sorted B and C into A
+        Merge(B, p, C, q, A);
+    }
+}
+
+// -------------------------------------------------------
+int main() {
+    int A[] = {9, 4, 7, 2, 6, 3, 1};
+    int n = sizeof(A) / sizeof(A[0]);
+
+    MergeSort(A, n);
+
+    cout << "Sorted Array: ";
+    for (int i = 0; i < n; i++)
+        cout << A[i] << " ";
+
+    return 0;
+}
+</pre>
+</div></div>
+<br>
+     <img src="images/d1.jpeg" class="centered-photo" alt="Photo">
+
+</section>
+
+
+
+
+<!-- Modal CSS -->
+<style>
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    overflow: auto;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+}
+.modal-content {
+    background: rgba(0,60,70,0.9);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 0 50px #0ff;
+}
+.close {
+    color: #0ff;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.back-btn {
+    background: #0077ff;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.back-btn:hover {
+    background: #0055cc;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 10px 22px;
+    font-size: 18px;
+    color: #031f25;
+    background: #0ff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 0 12px #0ff, 0 0 18px rgba(0,255,255,0.6);
+}
+
+.home-btn:hover {
+    background: #8ffcff;
+    box-shadow: 0 0 25px #0ff, 0 0 40px rgba(0,255,255,0.9);
+    transform: scale(1.05);
+}
+.centered-photo {
+    display: block;
+    margin: 0 auto; /* centers the image */
+    width: 60%;     /* adjust size as you like */
+    max-width: 600px;
+
+    border: 3px solid #0ff; /* neon cyan border */
+    border-radius: 15px;
+
+    animation: neonBorder 3s infinite; /* your existing neon glow */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+
+.close:hover { color: #fff; }
+.course-box-container { margin-top: 20px; }
+.course-box { cursor: default; }
+</style>
+
+<!-- Modal JS -->
+<script>
+function openModal(id) {
+    document.getElementById(id).style.display = "block";
+}
+function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+}
+// Close modal when clicking outside content
+window.onclick = function(event) {
+    const modal = document.getElementById('smartEnergyModal');
+    if (event.target == modal) modal.style.display = "none";
+}
+</script>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p>Nextora © 2025 — Futuristic City Project</p>
+</div>
+
+
+
+<script>
+    function openSubpage(pageId) {
+        document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+        document.getElementById(pageId).style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+function closeModal(id) {
+    document.getElementById(id).style.display = 'none';
+}
+
+
+function goHome() {
+    window.location.href = "index.html";
+}
+
+
+
+
+    function goBack() {
+        document.querySelectorAll('section').forEach(sec => sec.style.display = 'none');
+        document.getElementById('swapna').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+</script>
+
+
+
+<script src="script.js">
+    function openSubpage(id) {
+    document.querySelectorAll('.subpage').forEach(p => p.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+
+function goBack() {
+    document.querySelectorAll('.subpage').forEach(p => p.style.display = "none");
+}
+
+function openSubpage(id) {
+    document.getElementById("mainpage").style.display = "none"; // hide main
+    document.querySelectorAll('.subpage').forEach(p => p.style.display = "none");
+    document.getElementById(id).style.display = "block"; // show subpage
+}
+
+function goBack() {
+    document.querySelectorAll('.subpage').forEach(p => p.style.display = "none");
+    document.getElementById("mainpage").style.display = "block"; // show main again
+}
+
+
+</script>
+
+<style>
+    .subpage {
+        display: none;
+    }
+</style>
+<script>
+const canvas = document.getElementById("techCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const nodes = [];
+const NODE_COUNT = 120;
+
+for (let i = 0; i < NODE_COUNT; i++) {
+  nodes.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // draw lines (circuit/data links)
+  for (let i = 0; i < NODE_COUNT; i++) {
+    for (let j = i + 1; j < NODE_COUNT; j++) {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 120) {
+        ctx.strokeStyle = `rgba(0,255,255,${1 - dist / 120})`;
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // draw nodes
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+
+    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 1.6, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0,255,255,0.9)";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+
+
+</body>
+</html>
