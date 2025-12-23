@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DAA Smart City – Nirjara</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Poppins,sans-serif;
+}
+
+body{
+  background:#031f25;
+  color:#d8f6ff;
+  padding:40px;
+}
+
+h1,h2{
+  text-align:center;
+  color:#7bf3ff;
+  text-shadow:0 0 20px #0ff;
+  margin-bottom:20px;
+}
+
+h3{ color:#a3f6ff; }
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:rgba(0,60,70,.45);
+  border:2px solid #0ff;
+  padding:25px;
+  border-radius:15px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(0,255,255,.3);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 0 40px #0ff;
+}
+
+section{
+  display:none;
+}
+
+section.active{
+  display:block;
+}
+
+.back-btn{
+  background:none;
+  border:1px solid #0ff;
+  color:#0ff;
+  padding:10px 20px;
+  border-radius:20px;
+  cursor:pointer;
+  margin-bottom:20px;
+}
+
+.case{
+  background:rgba(0,60,70,.45);
+  border:2px solid #0ff;
+  padding:25px;
+  border-radius:15px;
+  margin-bottom:30px;
+}
+
+ul{ margin-left:20px; margin-top:10px; }
+
+pre{
+  background:#02151a;
+  padding:20px;
+  border-radius:10px;
+  overflow-x:auto;
+  color:#8af4ff;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #050b1a;
+  color: white;
+}
+
+#techCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -999;
+  pointer-events: none;
+}
+
+</style>
+</head>
+
+<body>
+<canvas id="techCanvas"></canvas>
+
+<h1>🌆 Smart City – Nirjara (DAA Project)</h1>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="active">
+
+<h2>Identified Business Cases</h2>
+
+<div class="grid">
+  <div class="card" onclick="openPage('urban')">🌿 Urban Cooling</div>
+  <div class="card" onclick="openPage('ev')">🔋 EV Battery Recycling</div>
+  <div class="card" onclick="openPage('bootcamp')">🎓 Digital Bootcamp</div>
+  <div class="card" onclick="openPage('content')">📺 Local Language Studio</div>
+  <div class="card" onclick="openPage('water')">💧 Water Recycling</div>
+  <div class="card" onclick="openPage('craft')">🧵 Craft Marketplace</div>
+</div>
+
+</section>
+
+<!-- ================= URBAN ================= -->
+<section id="urban">
+<button class="back-btn" onclick="goHome()">⟵ Back</button>
+<div class="case">
+<h2>Urban Cooling Solutions</h2>
+<p><strong>Algorithm:</strong> 0/1 Knapsack</p>
+<ul>
+<li>Identify heat zones</li>
+<li>Estimate cost vs cooling benefit</li>
+<li>Select optimal locations</li>
+<li>Deploy cooling infrastructure</li>
+<li>Monitor temperature</li>
+</ul>
+
+<pre>
+def knapsack(W, wt, val, n):
+    dp = [[0]*(W+1) for _ in range(n+1)]
+    for i in range(1,n+1):
+        for w in range(W+1):
+            if wt[i-1] <= w:
+                dp[i][w] = max(val[i-1] + dp[i-1][w-wt[i-1]], dp[i-1][w])
+            else:
+                dp[i][w] = dp[i-1][w]
+    return dp[n][W]
+</pre>
+</div>
+</section>
+
+<!-- ================= EV ================= -->
+<section id="ev">
+<button class="back-btn" onclick="goHome()">⟵ Back</button>
+<div class="case">
+<h2>EV Battery Recycling</h2>
+<p><strong>Algorithm:</strong> LPT Scheduling</p>
+<ul>
+<li>Collect batteries</li>
+<li>Estimate processing time</li>
+<li>Schedule longest tasks first</li>
+<li>Refurbish safely</li>
+<li>Reuse batteries</li>
+</ul>
+
+<pre>
+def lpt(tasks, machines):
+    tasks.sort(reverse=True)
+    load = [0]*machines
+    for t in tasks:
+        i = load.index(min(load))
+        load[i] += t
+    return load
+</pre>
+</div>
+</section>
+
+<!-- ================= BOOTCAMP ================= -->
+<section id="bootcamp">
+<button class="back-btn" onclick="goHome()">⟵ Back</button>
+<div class="case">
+<h2>Digital Skills Bootcamp</h2>
+<p><strong>Algorithm:</strong> Bipartite Matching</p>
+<ul>
+<li>Register students & mentors</li>
+<li>Create bipartite graph</li>
+<li>Apply matching</li>
+<li>Assign batches</li>
+<li>Track progress</li>
+</ul>
+
+<pre>
+def bpm(u, matchR, seen, graph):
+    for v in graph[u]:
+        if not seen[v]:
+            seen[v] = True
+            if matchR[v] == -1 or bpm(matchR[v], matchR, seen, graph):
+                matchR[v] = u
+                return True
+    return False
+</pre>
+</div>
+</section>
+
+<!-- ================= CONTENT ================= -->
+<section id="content">
+<button class="back-btn" onclick="goHome()">⟵ Back</button>
+<div class="case">
+<h2>Local Language Content Studio</h2>
+<p><strong>Algorithm:</strong> Greedy Set Cover</p>
+<ul>
+<li>Identify language groups</li>
+<li>Select content topics</li>
+<li>Maximize audience coverage</li>
+<li>Produce content</li>
+<li>Collect feedback</li>
+</ul>
+
+<pre>
+def set_cover(universe, sets):
+    covered = set()
+    cover = []
+    while covered != universe:
+        s = max(sets, key=lambda x: len(x - covered))
+        cover.append(s)
+        covered |= s
+    return cover
+</pre>
+</div>
+</section>
+
+<!-- ================= WATER ================= -->
+<section id="water">
+<button class="back-btn" onclick="goHome()">⟵ Back</button>
+<div class="case">
+<h2>Rainwater & Greywater Recycling</h2>
+<p><strong>Algorithm:</strong> Kruskal MST</p>
+<ul>
+<li>Survey buildings</li>
+<li>Create weighted graph</li>
+<li>Apply MST</li>
+<li>Install pipelines</li>
+<li>Monitor usage</li>
+</ul>
+
+<pre>
+def kruskal(edges, n):
+    parent = list(range(n))
+    def find(x):
+        while parent[x] != x:
+            x = parent[x]
+        return x
+    mst = []
+    for w,u,v in sorted(edges):
+        x,y = find(u), find(v)
+        if x != y:
+            mst.append((u,v,w))
+            parent[x] = y
+    return mst
+</pre>
+</div>
+</section>
+
+<!-- ================= CRAFT ================= -->
+<section id="craft">
+<button class="back-btn" onclick="goHome()">⟵ Back</button>
+<div class="case">
+<h2>Heritage Craft Marketplace</h2>
+<p><strong>Algorithm:</strong> Edmonds–Karp Max Flow</p>
+<ul>
+<li>Register sellers & buyers</li>
+<li>Create flow network</li>
+<li>Apply max flow</li>
+<li>Allocate orders</li>
+<li>Scale marketplace</li>
+</ul>
+
+<pre>
+def bfs(rGraph, s, t, parent):
+    visited = [False]*len(rGraph)
+    queue = [s]
+    visited[s] = True
+    while queue:
+        u = queue.pop(0)
+        for v,cap in enumerate(rGraph[u]):
+            if not visited[v] and cap > 0:
+                parent[v] = u
+                visited[v] = True
+                queue.append(v)
+    return visited[t]
+</pre>
+</div>
+</section>
+
+<script>
+function openPage(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function goHome(){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById("home").classList.add("active");
+  window.scrollTo(0,0);
+}
+</script>
+<script>
+const canvas = document.getElementById("techCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
+
+const nodes = [];
+const NODE_COUNT = 120;
+
+for (let i = 0; i < NODE_COUNT; i++) {
+  nodes.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: (Math.random() - 0.5) * 0.3,
+    vy: (Math.random() - 0.5) * 0.3
+  });
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  // draw lines (circuit/data links)
+  for (let i = 0; i < NODE_COUNT; i++) {
+    for (let j = i + 1; j < NODE_COUNT; j++) {
+      const dx = nodes[i].x - nodes[j].x;
+      const dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+
+      if (dist < 120) {
+        ctx.strokeStyle = `rgba(0,255,255,${1 - dist / 120})`;
+        ctx.lineWidth = 0.5;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
+    }
+  }
+
+  // draw nodes
+  nodes.forEach(n => {
+    n.x += n.vx;
+    n.y += n.vy;
+
+    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, 1.6, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(0,255,255,0.9)";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+</body>
+</html>
